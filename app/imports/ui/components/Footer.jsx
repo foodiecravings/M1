@@ -1,17 +1,24 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { Menu, Header, Icon } from 'semantic-ui-react';
+
 
 /** The Footer appears at the bottom of every page. Rendered by the App Layout component. */
 class Footer extends React.Component {
   render() {
-    const divStyle = { paddingTop: '15px' };
+    const menuStyle = { marginBottom: '10px' };
     return (
         <footer>
-          <div style={divStyle} className="ui center aligned container">
-            <hr />
-              Department of Information and Computer Sciences <br />
-              University of Hawaii<br />
-              Honolulu, HI 96822
-          </div>
+          <Menu style={menuStyle} attached="top" borderless inverted>
+            <Menu.Item>
+              <Header inverted as='h6'>Created @ 2019</Header>
+            </Menu.Item>
+            <Menu.Item fitted position="right"><Icon name="facebook f"/></Menu.Item>
+            <Menu.Item fitted><Icon name="twitter"/></Menu.Item>
+            <Menu.Item fitted><Icon name="pinterest"/></Menu.Item>
+            <Menu.Item fitted><Icon name="instagram"/></Menu.Item>
+            ) : ''}
+          </Menu>
         </footer>
     );
   }

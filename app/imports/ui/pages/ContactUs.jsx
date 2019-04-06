@@ -6,7 +6,7 @@ import TextField from 'uniforms-semantic/TextField';
 import LongTextField from 'uniforms-semantic/LongTextField';
 import SubmitField from 'uniforms-semantic/SubmitField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
-import { Report, ReportSchema } from '/imports/api/report/report';
+import { Reports, ReportSchema } from '/imports/api/report/report';
 import { withTracker } from 'meteor/react-meteor-data';
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ContactUs extends React.Component {
@@ -20,16 +20,16 @@ class ContactUs extends React.Component {
 
   insertCallback(error) {
     if (error) {
-      Bert.alert({ type: 'danger', message: `Add failed: ${error.message}` });
+      Bert.alert({ type: 'danger', message: `Report failed: ${error.message}` });
     } else {
-      Bert.alert({ type: 'success', message: 'Add succeeded' });
+      Bert.alert({ type: 'success', message: 'Report succeeded' });
       this.formRef.reset();
     }
   }
 
   submit(data) {
     const { name } = data;
-    Report.insert({ name }, this.insertCallback);
+    Reports.insert({ name, description }, this.insertCallback);
   }
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */

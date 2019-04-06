@@ -28,7 +28,7 @@ class ContactUs extends React.Component {
   }
 
   submit(data) {
-    const { name } = data;
+    const { name, description } = data;
     Reports.insert({ name, description }, this.insertCallback);
   }
 
@@ -43,8 +43,8 @@ class ContactUs extends React.Component {
             <li>US: 808-525-8471</li>
             <li>Monday-Friday: 7:00AM - 10:30 PM HST</li>
           </ul>
-          <AutoForm ref={(ref) => {
-            this.formRef = ref;
+          <AutoForm ref={(myref) => {
+            this.formRef = myref;
           }} schema={ReportSchema} onSubmit={this.submit}>
             <Segment>
               <TextField name='name'/>

@@ -18,7 +18,7 @@ class ListReportAdmin extends React.Component {
   renderPage() {
     return (
         <Container>
-          <Header as="h2" textAlign="center">List Reports (Admin)</Header>
+          <Header as="h2" textAlign="center">General Feedback(Admin)</Header>
           <Table celled>
             <Table.Header>
               <Table.Row>

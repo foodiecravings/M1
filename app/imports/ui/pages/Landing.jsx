@@ -5,7 +5,7 @@ import { Card, Image, Grid} from 'semantic-ui-react';
 class Landing extends React.Component {
   render() {
     return (
-        <div>
+        <div className='landing'>
           <Grid centered columns={3}>
             <Grid.Column>
               <Card centered>

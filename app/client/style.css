@@ -1,10 +1,6 @@
-.vertical {
-  height: 500px;
-  vertical-align: center;
-}
-
-.landing-page-cards{
-  background-color: white;
+.landing{
+  background-image: url("https://ae01.alicdn.com/kf/HTB1dt_kRVXXXXavXpXXq6xXFXXXd/8x8FT-Chocolate-Sandy-Brown-Wooden-Planks-Timber-Wall-Custom-Photography-Studio-Backgrounds-Backdrops-Vinyl-240cm-x.jpg_640x640.jpg");
+  color: white;
 }
 .landing-page-image{
   height: 250px;

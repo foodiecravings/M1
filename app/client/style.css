@@ -8,5 +8,7 @@
   width: 300px;
 }
 .search-bar{
-
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
 }

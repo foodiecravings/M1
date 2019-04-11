@@ -7,9 +7,6 @@ class Landing extends React.Component {
   render() {
     return (
         <div className='landing'>
-          <Container>
-            <SearchBar className='search-bar'/>
-          </Container>
           <Grid centered columns={1}>
             <Grid.Column>
               <Header as='h1' textAlign='center' inverted>

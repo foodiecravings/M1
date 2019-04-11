@@ -42,8 +42,8 @@ export default class SearchBar extends Component {
 
     return (
       <Grid>
-        <Grid.Column width={6}>
-          <Search
+        <Grid.Column className='search-bar' width={6}>
+          <Search fluid
             input={{ icon: 'search', iconPosition: 'left' }}
             loading={isLoading}
             onResultSelect={this.handleResultSelect}

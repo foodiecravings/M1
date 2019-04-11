@@ -15,5 +15,9 @@
     { "name": "John", "description": "The NavBar has a bug" },
     { "name": "Louis", "description": "This siie is the best!" },
     { "name": "John", "description": "There's are inappropriate review under hamburgers" }
+  ],
+
+  "defaultReports": [
+    { "name": "John", "description": "The NavBar has a bug" }
   ]
 }

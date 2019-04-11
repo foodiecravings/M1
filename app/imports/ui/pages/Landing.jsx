@@ -1,11 +1,20 @@
 import React from 'react';
-import { Card, Image, Grid} from 'semantic-ui-react';
+import { Card, Image, Grid, Header} from 'semantic-ui-react';
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
   render() {
     return (
         <div className='landing'>
+          <Grid centered columns={1}>
+            <Grid.Column>
+              <Header as='h1' textAlign='center' inverted>
+                Do you ever have a craving for a certain food while on campus? By using foodie cravings, you will know
+                where to get it, if you can get it now, what it looks likes, how much it will cost, and what your
+                fellow students think of the food.
+              </Header>
+            </Grid.Column>
+          </Grid>
           <Grid centered columns={3}>
             <Grid.Column>
               <Card centered>
@@ -44,6 +53,7 @@ class Landing extends React.Component {
               </Card>
             </Grid.Column>
           </Grid>
+          <br></br>
         </div>
     );
   }

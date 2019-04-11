@@ -1,5 +1,6 @@
 import React from 'react';
-import { Card, Image, Grid, Header} from 'semantic-ui-react';
+import { Grid, Image, Container } from 'semantic-ui-react';
+import SearchBar from '/imports/ui/components/SearchBar';
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {

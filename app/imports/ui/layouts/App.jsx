@@ -8,7 +8,6 @@ import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import Profile from '../pages/Profile';
-import ListStuffAdmin from '../pages/ListStuffAdmin';
 import ListReportAdmin from '../pages/ListReportAdmin';
 import AddFood from '../pages/AddFood';
 import EditFood from '../pages/EditFood';
@@ -33,7 +32,6 @@ class App extends React.Component {
               <ProtectedRoute path="/list" component={Profile}/>
               <ProtectedRoute path="/add" component={AddFood}/>
               <ProtectedRoute path="/edit/:_id" component={EditFood}/>
-              <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
               <AdminProtectedRoute path="/adminreport" component={ListReportAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>

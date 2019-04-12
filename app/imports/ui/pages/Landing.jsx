@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Image, Card, Header, Container, Icon } from 'semantic-ui-react';
+import { Grid, Image, Card, Container, Icon } from 'semantic-ui-react';
 import SearchBar from '/imports/ui/components/SearchBar';
 
 /** A simple static component to render some text for the landing page. */
@@ -20,9 +20,12 @@ class Landing extends React.Component {
             <Grid.Column>
             </Grid.Column>
           </Grid>
+          <Container>
+            <SearchBar className='search-bar'/>
+          </Container>
           <Grid centered columns={3}>
             <Grid.Column>
-              <Card raised centered>
+              <Card raised centered className='landing-page-card-background'>
                 <Card.Content>
                   <Card.Header>Featured Item</Card.Header>
                   <Image circular className='landing-page-image' src="/images/laulau.png"/>
@@ -39,7 +42,7 @@ class Landing extends React.Component {
               </Card>
             </Grid.Column>
             <Grid.Column>
-              <Card raised centered>
+              <Card raised centered className='landing-page-card-background'>
                 <Card.Content>
                   <Card.Header>Top Rated Item</Card.Header>
                   <Image circular className='landing-page-image' src="/images/hamburger.png"/>
@@ -56,7 +59,7 @@ class Landing extends React.Component {
               </Card>
             </Grid.Column>
             <Grid.Column>
-              <Card raised centered>
+              <Card raised centered className='landing-page-card-background'>
                 <Card.Content>
                   <Card.Header>Recently Added Item</Card.Header>
                   <Image circular className='landing-page-image' src="/images/gchicken.png"/>

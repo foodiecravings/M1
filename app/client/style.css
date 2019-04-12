@@ -7,11 +7,10 @@
   height: 250px;
   width: 300px;
 }
-.ui.card,
-.ui.cards>.card {
-  background-color: black;
-  color: white;
+.landing-page-card-background{
+  opacity: 0.9 !important;
 }
+
 .search-bar{
   background-color: rgba(255, 255, 255, 0.92);
   padding: 10px;
@@ -26,7 +25,4 @@
   font-family: 'Righteous', cursive;
   margin-left: 20px;
   padding-bottom: 20px
-}
-landing-cards{
-  background-color: rgba(255, 255, 255, 0.92);
 }

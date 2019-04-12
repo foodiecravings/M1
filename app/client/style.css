@@ -7,6 +7,11 @@
   height: 250px;
   width: 300px;
 }
+.ui.card,
+.ui.cards>.card {
+  background-color: black;
+  color: white;
+}
 .search-bar{
   margin-left: auto;
   margin-right: auto;

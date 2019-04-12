@@ -1,9 +1,9 @@
 import _ from 'lodash'
 import faker from 'faker'
 import React, { Component } from 'react'
-import { Search, Grid  } from 'semantic-ui-react'
+import { Search, Grid } from 'semantic-ui-react'
 
-    //reference digits part 2
+//reference digits part 2
 const source = _.times(5, () => ({
   title: faker.company.companyName(),
   description: faker.company.catchPhrase(),
@@ -17,7 +17,7 @@ export default class SearchBar extends Component {
   }
 
   resetComponent = () =>
-    this.setState({ isLoading: false, results: [], value: '' });
+      this.setState({ isLoading: false, results: [], value: '' });
 
   handleResultSelect = (e, { result }) => this.setState({ value: result.title });
 
@@ -41,21 +41,23 @@ export default class SearchBar extends Component {
     const { isLoading, value, results } = this.state;
 
     return (
-      <Grid>
-        <Grid.Column className='search-bar' width={6}>
-          <Search fluid
-            input={{ icon: 'search', iconPosition: 'left' }}
-            loading={isLoading}
-            onResultSelect={this.handleResultSelect}
-            onSearchChange={_.debounce(this.handleSearchChange, 500, {
-              leading: true,
-            })}
-            results={results}
-            value={value}
-            {...this.props}
-          />
-        </Grid.Column>
-      </Grid>
+        <Grid>
+          <Grid.Column>
+            <Search className='search-bar'
+                    fluid
+                    placeholder='Search for your food'
+                    input={{ fluid: 'true', transparent:'true', icon: 'search', iconPosition: 'left' }}
+                    loading={isLoading}
+                    onResultSelect={this.handleResultSelect}
+                    onSearchChange={_.debounce(this.handleSearchChange, 500, {
+                      leading: true,
+                    })}
+                    results={results}
+                    value={value}
+                    {...this.props}
+            />
+          </Grid.Column>
+        </Grid>
 
         /* renders back end database stuff, good for visualizing the data.
         <Grid.Column width={10}>

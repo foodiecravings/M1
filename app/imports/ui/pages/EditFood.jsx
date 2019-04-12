@@ -40,7 +40,7 @@ class EditFood extends React.Component {
                 <TextField name='reviewer'/>
                 <TextField name='food'/>
                 <TextField name='image'/>
-                <TextField name='price'/>
+                <TextField name='cost'/>
                 <TextField name='location'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>

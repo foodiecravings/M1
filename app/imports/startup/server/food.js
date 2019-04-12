@@ -4,7 +4,7 @@ import { Foods } from '../../api/food/food.js';
 
 /** Initialize the database with a default data document. */
 function addData(data) {
-  console.log(`  Adding: ${data.name} (${data.owner})`);
+  console.log(`  Adding: ${data.reviewer} (${data.owner})`);
   Foods.insert(data);
 }
 

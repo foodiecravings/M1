@@ -42,9 +42,10 @@ export default class SearchBar extends Component {
 
     return (
       <Grid>
-        <Grid.Column className='search-bar' width={6}>
+        <Grid.Column className='search-bar' >
           <Search fluid
-            input={{ icon: 'search', iconPosition: 'left' }}
+                  placeholder='Search for your food'
+            input={{ fluid:'true', icon: 'search', iconPosition: 'left' }}
             loading={isLoading}
             onResultSelect={this.handleResultSelect}
             onSearchChange={_.debounce(this.handleSearchChange, 500, {

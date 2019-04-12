@@ -34,9 +34,9 @@ class AddFood extends React.Component {
 
   /** On submit, insert the data. */
   submit(data) {
-    const { reviewer, food, image, price, location } = data;
+    const { reviewer, food, image, cost, location } = data;
     const owner = Meteor.user().username;
-    Foods.insert({ reviewer, food, image, price, location, owner }, this.insertCallback);
+    Foods.insert({ reviewer, food, image, cost, location, owner }, this.insertCallback);
   }
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
@@ -50,7 +50,7 @@ class AddFood extends React.Component {
                 <TextField name='reviewer'/>
                 <TextField name='food'/>
                 <TextField name='image'/>
-                <TextField name='price'/>
+                <TextField name='cost'/>
                 <TextField name='location'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>

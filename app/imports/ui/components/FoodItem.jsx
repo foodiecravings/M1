@@ -8,9 +8,11 @@ class FoodItem extends React.Component {
   render() {
     return (
         <Table.Row>
-          <Table.Cell>{this.props.food.name}</Table.Cell>
-          <Table.Cell>{this.props.food.quantity}</Table.Cell>
-          <Table.Cell>{this.props.food.condition}</Table.Cell>
+          <Table.Cell>{this.props.food.reviewer}</Table.Cell>
+          <Table.Cell>{this.props.food.food}</Table.Cell>
+          <Table.Cell>{this.props.food.image}</Table.Cell>
+          <Table.Cell>{this.props.food.cost}</Table.Cell>
+          <Table.Cell>{this.props.food.location}</Table.Cell>
           <Table.Cell>
             <Link to={`/edit/${this.props.food._id}`}>Edit</Link>
           </Table.Cell>

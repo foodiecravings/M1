@@ -22,7 +22,7 @@ class Profile extends React.Component {
           <Table celled>
             <Table.Header>
               <Table.Row>
-                <Table.HeaderCell>Reviewer</Table.HeaderCell>
+                <Table.HeaderCell>Name</Table.HeaderCell>
                 <Table.HeaderCell>Food</Table.HeaderCell>
                 <Table.HeaderCell>Image</Table.HeaderCell>
                 <Table.HeaderCell>Cost</Table.HeaderCell>

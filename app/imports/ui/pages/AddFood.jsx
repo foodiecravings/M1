@@ -34,9 +34,9 @@ class AddFood extends React.Component {
 
   /** On submit, insert the data. */
   submit(data) {
-    const { reviewer, food, image, cost, location } = data;
+    const { name, food, image, cost, location } = data;
     const owner = Meteor.user().username;
-    Foods.insert({ reviewer, food, image, cost, location, owner }, this.insertCallback);
+    Foods.insert({ name, food, image, cost, location, owner }, this.insertCallback);
   }
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
@@ -47,7 +47,7 @@ class AddFood extends React.Component {
             <Header as="h2" textAlign="center">Add Food</Header>
             <AutoForm ref={(ref) => { this.formRef = ref; }} schema={FoodSchema} onSubmit={this.submit}>
               <Segment>
-                <TextField name='reviewer'/>
+                <TextField name='name'/>
                 <TextField name='food'/>
                 <TextField name='image'/>
                 <TextField name='cost'/>

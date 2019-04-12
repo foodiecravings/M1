@@ -18,8 +18,8 @@ class EditFood extends React.Component {
 
   /** On successful submit, insert the data. */
   submit(data) {
-    const { reviewer, food, image, cost, location, _id } = data;
-    Foods.update(_id, { $set: { reviewer, food, image, cost, location } }, (error) => (error ?
+    const { name, food, image, cost, location, _id } = data;
+    Foods.update(_id, { $set: { name, food, image, cost, location } }, (error) => (error ?
         Bert.alert({ type: 'danger', message: `Update failed: ${error.message}` }) :
         Bert.alert({ type: 'success', message: 'Update succeeded' })));
   }
@@ -37,7 +37,7 @@ class EditFood extends React.Component {
             <Header as="h2" textAlign="center">Edit Food</Header>
             <AutoForm schema={FoodSchema} onSubmit={this.submit} model={this.props.doc}>
               <Segment>
-                <TextField name='reviewer'/>
+                <TextField name='name'/>
                 <TextField name='food'/>
                 <TextField name='image'/>
                 <TextField name='cost'/>

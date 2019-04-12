@@ -1,7 +1,7 @@
 .landing{
-  background: url("https://image.shutterstock.com/image-photo/background-old-rustic-wooden-planks-260nw-1173301186.jpg");
+  background: url('/images/food.jpg') no-repeat center center fixed;
   background-size: cover;
-  color: white;
+  color: black;
 }
 .landing-page-image{
   height: 250px;
@@ -16,4 +16,12 @@
   margin-left: auto;
   margin-right: auto;
   padding: 10px;
+}
+
+.landingFont{
+  color: #0bcb9a;
+  font-size: 20px;
+  font-family: 'Righteous', cursive;
+  margin-left: 20px;
+  padding-bottom: 300px
 }

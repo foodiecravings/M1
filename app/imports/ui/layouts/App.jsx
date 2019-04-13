@@ -7,11 +7,11 @@ import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
-import ListStuff from '../pages/ListStuff';
+import Profile from '../pages/Profile';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
 import ListReportAdmin from '../pages/ListReportAdmin';
-import AddStuff from '../pages/AddStuff';
-import EditStuff from '../pages/EditStuff';
+import AddFood from '../pages/AddFood';
+import EditFood from '../pages/EditFood';
 import ContactUs from '../pages/ContactUs';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
@@ -30,9 +30,9 @@ class App extends React.Component {
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
               <Route path="/contact" component={ContactUs}/>
-              <ProtectedRoute path="/list" component={ListStuff}/>
-              <ProtectedRoute path="/add" component={AddStuff}/>
-              <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
+              <ProtectedRoute path="/list" component={Profile}/>
+              <ProtectedRoute path="/add" component={AddFood}/>
+              <ProtectedRoute path="/edit/:_id" component={EditFood}/>
               <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
               <AdminProtectedRoute path="/adminreport" component={ListReportAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>

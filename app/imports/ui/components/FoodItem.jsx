@@ -5,9 +5,9 @@ import { withRouter, Link } from 'react-router-dom';
 import { Foods } from '/imports/api/food/food';
 import { Bert } from 'meteor/themeteorchef:bert';
 
-
-/** Renders a single row in the Profile table. See pages/Profile.jsx. */
+/** Renders a single row in the List Food table. See pages/Reviews.jsx. */
 class FoodItem extends React.Component {
+
   constructor(props) {
     super(props);
     this.onClick = this.onClick.bind(this);
@@ -23,7 +23,7 @@ class FoodItem extends React.Component {
 
   onClick() {
     /* eslint-disable-next-line */
-    if (confirm('Do you wish to delete this foodie?')) {
+    if (confirm('Do you wish to delete this food item?')) {
       Foods.remove(this.props.food._id, this.deleteCallback);
     }
   }
@@ -37,12 +37,12 @@ class FoodItem extends React.Component {
           </Table.Cell>
           <Table.Cell>{this.props.food.cost}</Table.Cell>
           <Table.Cell>{this.props.food.location}</Table.Cell>
-          <Table.Row>
+          <Table.Cell>
             <Link to={`/edit/${this.props.food._id}`}>Edit</Link>
-          </Table.Row>
-          <Table.Row>
+          </Table.Cell>
+          <Table.Cell>
             <Button basic onClick={this.onClick}>Delete</Button>
-          </Table.Row>
+          </Table.Cell>
         </Table.Row>
     );
   }

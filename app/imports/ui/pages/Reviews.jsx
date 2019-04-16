@@ -7,7 +7,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 
 /** Renders a table containing all of the Food documents. Use <FoodItem> to render each row. */
-class ListFood extends React.Component {
+class Reviews extends React.Component {
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -18,7 +18,7 @@ class ListFood extends React.Component {
   renderPage() {
     return (
         <Container>
-          <Header as="h2" textAlign="center">Profile</Header>
+          <Header as="h2" textAlign="center">Reviews</Header>
           <Table celled>
             <Table.Header>
               <Table.Row>
@@ -41,7 +41,7 @@ class ListFood extends React.Component {
 }
 
 /** Require an array of Food documents in the props. */
-ListFood.propTypes = {
+Reviews.propTypes = {
   foods: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
@@ -54,4 +54,4 @@ export default withTracker(() => {
     foods: Foods.find({}).fetch(),
     ready: subscription.ready(),
   };
-})(ListFood);
+})(Reviews);

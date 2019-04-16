@@ -5,7 +5,7 @@ import { withRouter, Link } from 'react-router-dom';
 import { Foods } from '/imports/api/food/food';
 import { Bert } from 'meteor/themeteorchef:bert';
 
-/** Renders a single row in the List Food table. See pages/ListFood.jsx. */
+/** Renders a single row in the List Food table. See pages/Reviews.jsx. */
 class FoodItem extends React.Component {
 
   constructor(props) {

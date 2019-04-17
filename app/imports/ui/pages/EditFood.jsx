@@ -10,6 +10,7 @@ import ErrorsField from 'uniforms-semantic/ErrorsField';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
+import SelectField from './AddFood';
 
 /** Renders the Page for editing a single document. */
 class EditFood extends React.Component {
@@ -38,11 +39,11 @@ class EditFood extends React.Component {
                 <TextField name='name'/>
                 <TextField name='food'/>
                 <TextField name='image'/>
-                <TextField name='cost'/>
-                <TextField name='location'/>
+                <TextField name='restaurant'/>
+                <SelectField name='price'/>
+                <SelectField name='rating'/>
+                <SelectField name='location'/>
                 <SubmitField value='Submit'/>
-                <ErrorsField/>
-                <HiddenField name='owner' />
               </Segment>
             </AutoForm>
           </Grid.Column>

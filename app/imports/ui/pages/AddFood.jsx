@@ -4,6 +4,7 @@ import { Grid, Segment, Header } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import SubmitField from 'uniforms-semantic/SubmitField';
+import SelectField from 'uniforms-semantic/SelectField';
 import HiddenField from 'uniforms-semantic/HiddenField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
 import { Bert } from 'meteor/themeteorchef:bert';
@@ -48,8 +49,10 @@ class AddFood extends React.Component {
                 <TextField name='name'/>
                 <TextField name='food'/>
                 <TextField name='image'/>
-                <TextField name='cost'/>
-                <TextField name='location'/>
+                <TextField name='restaurant'/>
+                <SelectField name='price'/>
+                <SelectField name='rating'/>
+                <SelectField name='location'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
                 <HiddenField name='owner' value='fakeuser@foo.com'/>

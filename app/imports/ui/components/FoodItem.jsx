@@ -35,7 +35,9 @@ class FoodItem extends React.Component {
           <Table.Cell>{this.props.food.food}</Table.Cell>
           <Table.Cell><Image floated='right' size='mini' src={this.props.food.image}/>
           </Table.Cell>
-          <Table.Cell>{this.props.food.cost}</Table.Cell>
+          <Table.Cell>{this.props.food.restaurant}</Table.Cell>
+          <Table.Cell>{this.props.food.price}</Table.Cell>
+          <Table.Cell>{this.props.food.rating}</Table.Cell>
           <Table.Cell>{this.props.food.location}</Table.Cell>
           <Table.Cell>
             <Link to={`/edit/${this.props.food._id}`}>Edit</Link>

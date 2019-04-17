@@ -9,7 +9,7 @@ const source = _.times(5, () => ({
   description: faker.company.catchPhrase(),
   image: faker.internet.avatar(),
   price: faker.finance.amount(0, 100, 2, '$'),
-}))
+}));
 
 export default class SearchBar extends Component {
   componentWillMount() {
@@ -46,7 +46,7 @@ export default class SearchBar extends Component {
             <Search className='search-bar'
                     fluid
                     placeholder='Search for your food'
-                    input={{ fluid: 'true', transparent:'true', icon: 'search', iconPosition: 'left' }}
+                    input={{ fluid: 'true', transparent: 'true', icon: 'search', iconPosition: 'left' }}
                     loading={isLoading}
                     onResultSelect={this.handleResultSelect}
                     onSearchChange={_.debounce(this.handleSearchChange, 500, {

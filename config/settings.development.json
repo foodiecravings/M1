@@ -14,6 +14,41 @@
   "defaultReports": [
     { "name": "John", "description": "The NavBar has a bug" },
     { "name": "Louis", "description": "This siie is the best!" },
-    { "name": "John", "description": "There's are inappropriate review under hamburgers" }
-  ]
+    { "name": "John", "description": "Theres are inappropriate review under hamburgers" }
+  ],
+
+  "defaultFoods": [{
+  "name": "L&L Hawaiian BBQ",
+  "food": "Loco Moco",
+  "image": "https://i.ytimg.com/vi/SEYD2ZudvME/hqdefault.jpg",
+  "cost": "~8.99",
+  "location": "Makiki, Honolulu",
+    "owner": "john@foo.com"
+},
+  {
+    "name": "Konos",
+    "food": "Breakfeast Burrito ",
+    "image": "http://dining.staradvertiser.com/wp-content/uploads/2016/10/DO10092016_15.jpg",
+    "cost": "~7.99",
+    "location": "Kaimuki, Honolulu",
+    "owner": "john@foo.com"
+  },
+  {
+    "name": "Juicy Brew",
+    "food": "Ulu Chili",
+    "image": "http://4.bp.blogspot.com/-ETxZycj5SUA/U9CQf3GSzCI/AAAAAAAAHkU/Rvf7zAyHOSY/s1600/breadfruitkeralan.jpg",
+    "cost": "~4.99",
+    "location": "Kaimuki, Honolulu",
+    "owner": "john@foo.com"
+  },
+  {
+    "name": "Kona Brewing Company",
+    "food": "Calamari",
+    "image": "https://cookinginsens.files.wordpress.com/2011/10/img_6308b.jpg",
+    "cost": "~10.99",
+    "location": "Hawaii Kai, Honolulu",
+    "owner": "john@foo.com"
+  }
+
+]
 }

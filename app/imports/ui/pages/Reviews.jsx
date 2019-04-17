@@ -25,7 +25,9 @@ class Reviews extends React.Component {
                 <Table.HeaderCell>Name</Table.HeaderCell>
                 <Table.HeaderCell>Food</Table.HeaderCell>
                 <Table.HeaderCell>Image</Table.HeaderCell>
-                <Table.HeaderCell>Cost</Table.HeaderCell>
+                <Table.HeaderCell>Restaurant</Table.HeaderCell>
+                <Table.HeaderCell>Price</Table.HeaderCell>
+                <Table.HeaderCell>Rating</Table.HeaderCell>
                 <Table.HeaderCell>Location</Table.HeaderCell>
                 <Table.HeaderCell>Edit</Table.HeaderCell>
               </Table.Row>

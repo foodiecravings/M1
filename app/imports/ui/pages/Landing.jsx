@@ -76,7 +76,6 @@ class Landing extends React.Component {
               </Card>
             </Grid.Column>
           </Grid>
-          <br/><br/>
         </div>
 
     );

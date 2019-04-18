@@ -20,31 +20,7 @@ class Reviews extends React.Component {
         <Container>
           <Header as="h2" textAlign="center">Reviews</Header>
           <Table celled>
-            <Table.Header>
-              <Table.Row>
-                <Table.HeaderCell>Name</Table.HeaderCell>
-                <Table.HeaderCell>Food</Table.HeaderCell>
-                <Table.HeaderCell>Image</Table.HeaderCell>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                <Table.HeaderCell>Restaurant</Table.HeaderCell>
-                <Table.HeaderCell>Price</Table.HeaderCell>
-                <Table.HeaderCell>Rating</Table.HeaderCell>
-=======
-                <Table.HeaderCell>Cost</Table.HeaderCell>
->>>>>>> parent of 22729cd... implemented cards
-=======
-                <Table.HeaderCell>Cost</Table.HeaderCell>
->>>>>>> parent of 22729cd... implemented cards
-=======
-                <Table.HeaderCell>Cost</Table.HeaderCell>
->>>>>>> parent of 22729cd... implemented cards
-                <Table.HeaderCell>Location</Table.HeaderCell>
-                <Table.HeaderCell>Edit</Table.HeaderCell>
-              </Table.Row>
-            </Table.Header>
-            <Table.Body>
+            <Table.Body background-color="transparent">
               {this.props.foods.map((food) => <FoodItem key={food._id} food={food} />)
                 /* found issue here regarding exit code 1 */}
             </Table.Body>

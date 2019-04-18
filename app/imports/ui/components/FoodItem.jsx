@@ -1,5 +1,6 @@
+
 import React from 'react';
-import { Table, Image, Button } from 'semantic-ui-react';
+import { Image, Button, Grid, Card, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 import { Foods } from '/imports/api/food/food';
@@ -30,34 +31,32 @@ class FoodItem extends React.Component {
 
   render() {
     return (
-        <Table.Row>
-          <Table.Cell>{this.props.food.name}</Table.Cell>
-          <Table.Cell>{this.props.food.food}</Table.Cell>
-          <Table.Cell><Image floated='right' size='mini' src={this.props.food.image}/>
-          </Table.Cell>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          <Table.Cell>{this.props.food.restaurant}</Table.Cell>
-          <Table.Cell>{this.props.food.price}</Table.Cell>
-          <Table.Cell>{this.props.food.rating}</Table.Cell>
-=======
-          <Table.Cell>{this.props.food.cost}</Table.Cell>
->>>>>>> parent of 22729cd... implemented cards
-=======
-          <Table.Cell>{this.props.food.cost}</Table.Cell>
->>>>>>> parent of 22729cd... implemented cards
-=======
-          <Table.Cell>{this.props.food.cost}</Table.Cell>
->>>>>>> parent of 22729cd... implemented cards
-          <Table.Cell>{this.props.food.location}</Table.Cell>
-          <Table.Cell>
-            <Link to={`/edit/${this.props.food._id}`}>Edit</Link>
-          </Table.Cell>
-          <Table.Cell>
-            <Button basic onClick={this.onClick}>Delete</Button>
-          </Table.Cell>
-        </Table.Row>
+        <Grid centered columns={3}>
+          <Grid.Column>
+            <Card raised centered>
+              <Card.Content>
+                <Image circular src={this.props.food.image}/>
+                <Card.Header>{this.props.food.food}</Card.Header>
+                <Card.Meta>Reviewer: {this.props.food.name}</Card.Meta>
+                <Card.Content extra>
+                  <a>
+                    Rating: {this.props.food.rating}
+                    <Icon name="star"/>
+                  </a>
+                </Card.Content>
+              </Card.Content>
+              <Card.Content extra>Location: {this.props.food.location}</Card.Content>
+              <Card.Content extra>Restaurant: {this.props.food.restaurant}</Card.Content>
+              <Card.Content extra>{this.props.food.price}</Card.Content>
+              <Card.Content extra>
+                <Button basic><Link to={`/edit/${this.props.food._id}`}>Edit</Link></Button>
+              </Card.Content>
+              <Card.Content extra>
+                <Button basic onClick={this.onClick}>Delete</Button>
+              </Card.Content>
+            </Card>
+          </Grid.Column>
+        </Grid>
     );
   }
 }

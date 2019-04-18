@@ -3,6 +3,8 @@ import { Meteor } from 'meteor/meteor';
 import { Container, Table, Header, Loader } from 'semantic-ui-react';
 import { Foods } from '/imports/api/food/food';
 import FoodItem from '/imports/ui/components/FoodItem';
+import { Profiles } from '/imports/api/profile/profile';
+import ProfileItem from '/imports/ui/components/ProfileItem';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 
@@ -18,6 +20,8 @@ class Reviews extends React.Component {
   renderPage() {
     return (
         <Container>
+          <Header as="h2" textAlign="center">Profile</Header>
+            <ProfileItem/>
           <Header as="h2" textAlign="center">Reviews</Header>
           <Table celled>
             <Table.Header>
@@ -31,8 +35,7 @@ class Reviews extends React.Component {
               </Table.Row>
             </Table.Header>
             <Table.Body>
-              {this.props.foods.map((food) => <FoodItem key={food._id} food={food} />)
-                /* found issue here regarding exit code 1 */}
+              {this.props.foods.map((food) => <FoodItem key={food._id} food={food} />)}
             </Table.Body>
           </Table>
         </Container>
@@ -43,6 +46,7 @@ class Reviews extends React.Component {
 /** Require an array of Food documents in the props. */
 Reviews.propTypes = {
   foods: PropTypes.array.isRequired,
+  profiles: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -50,8 +54,10 @@ Reviews.propTypes = {
 export default withTracker(() => {
   // Get access to Food documents.
   const subscription = Meteor.subscribe('Food');
+  const subscription2 = Meteor.subscribe('Profiles');
   return {
     foods: Foods.find({}).fetch(),
-    ready: subscription.ready(),
+    profiles: Profiles.find({}).fetch(),
+    ready: (subscription.ready() && subscription2.ready()),
   };
 })(Reviews);

@@ -20,7 +20,7 @@ class Reviews extends React.Component {
         <Container>
           <Header as="h2" textAlign="center">Reviews</Header>
           <Table celled>
-            <Table.Body background-color="transparent">
+            <Table.Body>
               {this.props.foods.map((food) => <FoodItem key={food._id} food={food} />)
                 /* found issue here regarding exit code 1 */}
             </Table.Body>

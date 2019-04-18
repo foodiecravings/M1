@@ -11,6 +11,10 @@
   opacity: 0.9 !important;
 }
 
+.reviews-page-card-background{
+  opacity: 0 !important;
+}
+
 .search-bar{
   background-color: rgba(255, 255, 255, 0.92);
   padding: 10px;

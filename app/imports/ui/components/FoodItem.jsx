@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Image, Button, Grid, Card, Icon } from 'semantic-ui-react';
+import { Image, Button, Grid, Card, Icon, Container } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 import { Foods } from '/imports/api/food/food';
@@ -33,7 +33,7 @@ class FoodItem extends React.Component {
     return (
         <Grid centered columns={3}>
           <Grid.Column>
-            <Card raised centered>
+            <Card>
               <Card.Content>
                 <Image circular src={this.props.food.image}/>
                 <Card.Header>{this.props.food.food}</Card.Header>

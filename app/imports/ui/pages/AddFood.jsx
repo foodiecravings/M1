@@ -1,6 +1,6 @@
 import React from 'react';
 import { Foods, FoodSchema } from '/imports/api/food/food';
-import { Grid, Segment, Header } from 'semantic-ui-react';
+import { Grid, Segment, Header, Rating } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import SubmitField from 'uniforms-semantic/SubmitField';
@@ -52,7 +52,7 @@ class AddFood extends React.Component {
                 <TextField name='restaurant'/>
                 <SelectField name='price'/>
                 <SelectField name='rating'/>
-                <SelectField name='location'/>
+                <SelectField name='location' />
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
                 <HiddenField name='owner' value='fakeuser@foo.com'/>

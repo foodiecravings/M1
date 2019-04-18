@@ -14,7 +14,7 @@ const FoodSchema = new SimpleSchema({
   price: {
     type: String,
     allowedValues: ['$0-$8', '$9-$15', '$16-$25', '$26++'],
-    defaultValue: '$0,$8',
+    defaultValue: '$0-$8',
   },
   rating: {
     type: String,

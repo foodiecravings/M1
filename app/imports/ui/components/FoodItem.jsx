@@ -36,9 +36,13 @@ class FoodItem extends React.Component {
           <Table.Cell><Image floated='right' size='mini' src={this.props.food.image}/>
           </Table.Cell>
 <<<<<<< HEAD
+<<<<<<< HEAD
           <Table.Cell>{this.props.food.restaurant}</Table.Cell>
           <Table.Cell>{this.props.food.price}</Table.Cell>
           <Table.Cell>{this.props.food.rating}</Table.Cell>
+=======
+          <Table.Cell>{this.props.food.cost}</Table.Cell>
+>>>>>>> parent of 22729cd... implemented cards
 =======
           <Table.Cell>{this.props.food.cost}</Table.Cell>
 >>>>>>> parent of 22729cd... implemented cards

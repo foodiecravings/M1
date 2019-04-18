@@ -22,7 +22,7 @@ renderPage()
       <Container>
         <Header as="h2" textAlign="center">Search Results</Header>
         <Table.Row>
-          {this.foods.props.map((results, index) => <FoodItem key={index} result={results} />)}
+          {this.props.results.map((results, index) => <FoodItem key={index} result={results} />)}
         </Table.Row>
       </Container>
   );
@@ -38,8 +38,9 @@ ListResults.propTypes = {
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Foods documents.
-  const subscription = Meteor.subscribe('Food');
+  const subscription = Meteor.subscribe('Foods');
   return {
+    results: Foods.find({}).fetch(),
     foods: Foods.find({}).fetch(),
     ready: subscription.ready(),
   };

@@ -12,7 +12,7 @@ import ListReportAdmin from '../pages/ListReportAdmin';
 import AddFood from '../pages/AddFood';
 import EditFood from '../pages/EditFood';
 import ContactUs from '../pages/ContactUs';
-import Results from '../pages/ListResults'
+import ListResults from '../pages/ListResults'
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
@@ -30,7 +30,7 @@ class App extends React.Component {
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
               <Route path="/contact" component={ContactUs}/>
-              <Route path="/results" component={Results}/>
+              <Route path="/results" component={ListResults}/>
               <ProtectedRoute path="/list" component={Reviews}/>
               <ProtectedRoute path="/add" component={AddFood}/>
               <ProtectedRoute path="/edit/:_id" component={EditFood}/>

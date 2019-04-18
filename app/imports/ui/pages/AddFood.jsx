@@ -48,7 +48,8 @@ class AddFood extends React.Component {
                 <TextField name='name'/>
                 <TextField name='food'/>
                 <TextField name='image'/>
-                <TextField name='cost'/>
+                <TextField name='location'/>
+                <TextField name='price'/>
                 <TextField name='location'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>

@@ -20,6 +20,18 @@ class Reviews extends React.Component {
         <Container>
           <Header as="h2" textAlign="center">Reviews</Header>
           <Table celled>
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell>Name</Table.HeaderCell>
+                <Table.HeaderCell>Food</Table.HeaderCell>
+                <Table.HeaderCell>Image</Table.HeaderCell>
+                <Table.HeaderCell>Restaurant</Table.HeaderCell>
+                <Table.HeaderCell>Price</Table.HeaderCell>
+                <Table.HeaderCell>Rating</Table.HeaderCell>
+                <Table.HeaderCell>Location</Table.HeaderCell>
+                <Table.HeaderCell>Edit</Table.HeaderCell>
+              </Table.Row>
+            </Table.Header>
             <Table.Body>
               {this.props.foods.map((food) => <FoodItem key={food._id} food={food} />)
                 /* found issue here regarding exit code 1 */}
@@ -29,7 +41,6 @@ class Reviews extends React.Component {
     );
   }
 }
-
 /** Require an array of Food documents in the props. */
 Reviews.propTypes = {
   foods: PropTypes.array.isRequired,

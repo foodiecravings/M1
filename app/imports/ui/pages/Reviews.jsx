@@ -27,9 +27,13 @@ class Reviews extends React.Component {
                 <Table.HeaderCell>Image</Table.HeaderCell>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <Table.HeaderCell>Restaurant</Table.HeaderCell>
                 <Table.HeaderCell>Price</Table.HeaderCell>
                 <Table.HeaderCell>Rating</Table.HeaderCell>
+=======
+                <Table.HeaderCell>Cost</Table.HeaderCell>
+>>>>>>> parent of 22729cd... implemented cards
 =======
                 <Table.HeaderCell>Cost</Table.HeaderCell>
 >>>>>>> parent of 22729cd... implemented cards

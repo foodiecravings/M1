@@ -1,11 +1,11 @@
 import React from 'react';
-import { Table, Image, Button, Card, Icon } from 'semantic-ui-react';
+import { Image, Button, Card, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 import { Foods } from '/imports/api/food/food';
 import { Bert } from 'meteor/themeteorchef:bert';
 
-/** Renders a single row in the List Food table. See pages/Reviews.jsx. */
+/** Renders a single row in the List Food table. See pages/Profile.jsx. */
 class FoodItem extends React.Component {
 
   constructor(props) {

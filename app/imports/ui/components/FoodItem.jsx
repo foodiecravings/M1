@@ -32,7 +32,7 @@ class FoodItem extends React.Component {
     return (
         <Card raised centered className='landing-page-card-background'>
           <Card.Content>
-            <Card.Header>Review From: {this.props.food.name}</Card.Header>
+            <Card.Header>Review From: {this.props.food.owner}</Card.Header>
             <Image circular className='landing-page-image' src={this.props.food.image}/>
             <Card.Header>{this.props.food.name}</Card.Header>
             <Card.Meta>From: {this.props.food.restaurant}</Card.Meta>

@@ -21,7 +21,7 @@ class Profile extends React.Component {
           <Container className='profileBackground'>
             <Grid centered columns={2}>
               <Grid.Column>
-                <Image centered circular size='small' className='profileImage'
+                <Image circular size='small' className='profileImage'
                        src='http://www.cernasolutions.com/wp-content/uploads/2017/05/Screen-Shot-2017-05-01-at-5.15.37-PM.png'/>
                        <br/><br/>
                 <Modal trigger={<Button>Edit Photo</Button>}>
@@ -48,11 +48,9 @@ class Profile extends React.Component {
               </Grid.Column>
             </Grid>
           </Container>
-          <Container>
             <Header as="h2" textAlign="center">Reviews Made:</Header>
             {this.props.foods.map((food) => <FoodItem key={food._id} food={food}/>)
               /* found issue here regarding exit code 1 */}
-          </Container>
         </div>
     );
   }

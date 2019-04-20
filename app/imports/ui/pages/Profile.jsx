@@ -22,7 +22,7 @@ class Profile extends React.Component {
             <Grid centered columns={2}>
               <Grid.Column>
                 <Image circular size='small' className='profileImage'
-                       src='http://www.cernasolutions.com/wp-content/uploads/2017/05/Screen-Shot-2017-05-01-at-5.15.37-PM.png'/>
+                       src='https://m.media-amazon.com/images/M/MV5BMTkyNDQ3NzAxM15BMl5BanBnXkFtZTgwODIwMTQ0NTE@._V1_.jpg'/>
                        <br/><br/>
                 <Modal trigger={<Button>Edit Photo</Button>}>
                   <Modal.Header>Select a Photo</Modal.Header>

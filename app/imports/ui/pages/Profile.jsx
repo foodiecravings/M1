@@ -1,55 +1,72 @@
 import React from 'react';
+import { Grid, Loader, Header, Segment } from 'semantic-ui-react';
+import { Profiles, ProfilesSchema } from '/imports/api/profile/profile';
+import { Bert } from 'meteor/themeteorchef:bert';
+import AutoForm from 'uniforms-semantic/AutoForm';
+import TextField from 'uniforms-semantic/TextField';
+import LongTextField from 'uniforms-semantic/LongTextField';
+import SubmitField from 'uniforms-semantic/SubmitField';
+import HiddenField from 'uniforms-semantic/HiddenField';
+import ErrorsField from 'uniforms-semantic/ErrorsField';
 import { Meteor } from 'meteor/meteor';
-import { Container, Table, Header, Loader } from 'semantic-ui-react';
-import { Foods } from '/imports/api/food/food';
-import FoodItem from '/imports/ui/components/FoodItem';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 
-/** Renders a table containing all of the Food documents. Use <FoodItem> to render each row. */
-class Profile extends React.Component {
+/** Renders the Page for editing a single document. */
+class UpdateProfile extends React.Component {
+
+  /** On successful submit, insert the data. */
+  submit(data) {
+    const { firstname, lastname, bio, photo, standing, _id } = data;
+    Profiles.update(_id, { $set: { firstname, lastname, bio, photo, standing} }, (error) => (error ?
+        Bert.alert({ type: 'danger', message: `Update failed: ${error.message}` }) :
+        Bert.alert({ type: 'success', message: 'Update succeeded' })));
+  }
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
-  /** Render the page once subscriptions have been received. */
+  /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   renderPage() {
     return (
-        <Container>
-          <Header as="h2" textAlign="center">Profile</Header>
-          <Table celled>
-            <Table.Header>
-              <Table.Row>
-                <Table.HeaderCell>Name</Table.HeaderCell>
-                <Table.HeaderCell>Food</Table.HeaderCell>
-                <Table.HeaderCell>Image</Table.HeaderCell>
-                <Table.HeaderCell>Cost</Table.HeaderCell>
-                <Table.HeaderCell>Location</Table.HeaderCell>
-              </Table.Row>
-            </Table.Header>
-            <Table.Body>
-              {this.props.foods.map((food) => <FoodItem key={food._id} food={food} />)}
-            </Table.Body>
-          </Table>
-        </Container>
+        <Grid container centered>
+          <Grid.Column>
+            <Header as="h2" textAlign="center">Update Profile</Header>
+            <AutoForm schema={ProfilesSchema} onSubmit={this.submit} model={this.props.doc}>
+              <Segment>
+                <TextField name='firstname'/>
+                <TextField name='lastname'/>
+                <LongTextField name='bio'/>
+                <TextField name='photo'/>
+                <TextField name='standing'/>
+                <SubmitField value='Submit'/>
+                <ErrorsField/>
+                <HiddenField name='owner'/>
+              </Segment>
+            </AutoForm>
+          </Grid.Column>
+        </Grid>
     );
   }
 }
 
-/** Require an array of Food documents in the props. */
-Profile.propTypes = {
-  foods: PropTypes.array.isRequired,
+/** Require the presence of a Profile document in the props object. Uniforms adds 'model' to the props, which we use. */
+UpdateProfile.propTypes = {
+  doc: PropTypes.object,
+  model: PropTypes.object,
   ready: PropTypes.bool.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
-export default withTracker(() => {
-  // Get access to Food documents.
-  const subscription = Meteor.subscribe('Food');
+export default withTracker(({ match }) => {
+  // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
+  const documentId = match.params._id;
+  // Get access to Profile documents.
+  const subscription = Meteor.subscribe('Profiles');
   return {
-    foods: Foods.find({}).fetch(),
+    doc: Profiles.findOne(documentId),
     ready: subscription.ready(),
   };
-})(Profile);
+})(UpdateProfile);

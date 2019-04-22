@@ -9,8 +9,7 @@ class ProfileItem extends React.Component {
     return (
         <Item.Group>
           <Item>
-            {/*<Item.Image size='tiny' src={this.props.profile.photo} />*/}
-
+            <Item.Image size='tiny' src={this.props.profile.photo} />
             <Item.Content>
               <Item.Header as='a'>{this.props.profile.firstname} {this.props.profile.lastname}</Item.Header>
               <Item.Meta>Bio</Item.Meta>
@@ -20,7 +19,6 @@ class ProfileItem extends React.Component {
               <Item.Extra>{this.props.profile.standing}</Item.Extra>
             </Item.Content>
           </Item>
-          <Link to={`/edit/${this.props.profile._id}`}>Edit</Link>
         </Item.Group>
     );
   }

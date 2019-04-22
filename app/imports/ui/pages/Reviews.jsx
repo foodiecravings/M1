@@ -21,7 +21,7 @@ class Reviews extends React.Component {
     return (
         <Container>
           <Header as="h2" textAlign="center">Profile</Header>
-            <ProfileItem/>
+          {this.props.profiles.map((profile) => <ProfileItem key={profile._id} profile={profile} />)}
           <Header as="h2" textAlign="center">Reviews</Header>
           <Table celled>
             <Table.Header>
@@ -52,7 +52,7 @@ Reviews.propTypes = {
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
-  // Get access to Food documents.
+  // Get access to Food and Profile documents.
   const subscription = Meteor.subscribe('Food');
   const subscription2 = Meteor.subscribe('Profiles');
   return {

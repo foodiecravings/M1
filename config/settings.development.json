@@ -1,9 +1,7 @@
 {
   "defaultAccounts": [
-    { "email": "john@foo.com", "password": "changeme", "role": "no","firstname": "john", "lastname": "john",
-      "bio": "Hello im john", "image": "na", "standing": "faculty" },
-    { "email": "admin@foo.com", "password": "changeme", "role": "admin","firstname": "admin", "lastname": "admin",
-      "bio": "Hello im admin", "image": "na", "standing": "senior" }
+    { "email": "john@foo.com", "password": "changeme"},
+    { "email": "admin@foo.com", "password": "changeme", "role": "admin"}
   ],
 
   "defaultData": [
@@ -11,6 +9,10 @@
     { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
     { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+  ],
+
+  "defaultProfile": [
+    { "firstname": "First Name", "lastname": "Last Name", "bio": "I like food", "photo": "none", "standing": "Senior", "owner": "john@foo.com"}
   ],
 
   "defaultReports": [

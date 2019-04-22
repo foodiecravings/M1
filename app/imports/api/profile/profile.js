@@ -12,6 +12,7 @@ const ProfilesSchema = new SimpleSchema({
   bio: String,
   photo: String,
   standing: String,
+  owner: String,
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */

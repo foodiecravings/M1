@@ -34,7 +34,7 @@ class SearchBar extends Component {
 
       this.setState({
         isLoading: false,
-        results: _.filter(source, isMatch),
+        results: _.filter(this.props.foods.name, isMatch),
       })
     }, 300)
   };
@@ -64,7 +64,7 @@ class SearchBar extends Component {
               <Header>State</Header>
               <pre style={{ overflowX: 'auto' }}>{JSON.stringify(this.state, null, 2)}</pre>
               <Header>Options</Header>
-              <pre style={{ overflowX: 'auto' }}>{JSON.stringify(source, null, 2)}</pre>
+              <pre style={{ overflowX: 'auto' }}>{JSON.stringify(this.props.foods, null, 2)}</pre>
             </Segment>
           </Grid.Column>
         </Grid>

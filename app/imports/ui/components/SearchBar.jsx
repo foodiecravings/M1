@@ -90,7 +90,6 @@ class SearchBar extends Component {
 /** Require an array of Food documents in the props. */
 SearchBar.propTypes = {
   foods: PropTypes.array.isRequired,
-  ready: PropTypes.bool.isRequired,
 };
 
 export default withTracker(() => {
@@ -98,7 +97,6 @@ export default withTracker(() => {
   const subscription = Meteor.subscribe('Food');
   return {
     foods: Foods.find({}).fetch(),
-    ready: subscription.ready(),
   };
 
 })(SearchBar);

@@ -9,6 +9,7 @@ import { Meteor } from "meteor/meteor";
 
 const source = Meteor.settings.defaultFoods;
 
+
 class SearchBar extends Component {
 
   componentWillMount() {
@@ -20,7 +21,6 @@ class SearchBar extends Component {
 
   handleResultSelect = (e, { result }) => {
     this.setState({ value: result.name });
-    // window.location.assign("/results");
   }
 
   handleSearchChange = (e, { value }) => {
@@ -34,7 +34,7 @@ class SearchBar extends Component {
 
       this.setState({
         isLoading: false,
-        results: _.filter(this.props.stuff.name, isMatch),
+        results: _.filter(source, isMatch),
       })
     }, 300)
   };
@@ -44,11 +44,11 @@ class SearchBar extends Component {
 
     return (
         <Grid>
-          <Grid.Column>
+          <Grid.Column width={6}>
             <Search className='search-bar'
                     fluid
                     placeholder='Search for your food'
-                    input={{ fluid: 'true', transparent: 'true', icon: 'search', iconPosition: 'left' }}
+                    input={{ icon: 'search', iconPosition: 'left' }}
                     loading={isLoading}
                     onResultSelect={this.handleResultSelect}
                     onSearchChange={_.debounce(this.handleSearchChange, 500, {
@@ -64,7 +64,7 @@ class SearchBar extends Component {
               <Header>State</Header>
               <pre style={{ overflowX: 'auto' }}>{JSON.stringify(this.state, null, 2)}</pre>
               <Header>Options</Header>
-              <pre style={{ overflowX: 'auto' }}>{JSON.stringify(Meteor.settings.defaultData, null, 2)}</pre>
+              <pre style={{ overflowX: 'auto' }}>{JSON.stringify(source, null, 2)}</pre>
             </Segment>
           </Grid.Column>
         </Grid>
@@ -91,19 +91,12 @@ class SearchBar extends Component {
 
 /** Require an array of Food documents in the props. */
 SearchBar.propTypes = {
-  results: PropTypes.array.isRequired,
-  foods: PropTypes.array.isRequired,
-  ready: PropTypes.bool.isRequired,
-  stuff: PropTypes.object.isRequired,
 
 };
 
 export default withTracker(() => {
   // Get access to Food documents.
-  const subscription = Meteor.subscribe('Stuff');
+  const subscription = Meteor.subscribe('Food');
   return {
-    stuffs: Stuffs.find({}).fetch(),
-    foods: Foods.find({}).fetch(),
-    ready: subscription.ready(),
   };
 })(SearchBar);

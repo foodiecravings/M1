@@ -4,7 +4,7 @@ import { Container, Image, Header, Loader, Grid, Modal, Button, TextArea, Card }
 import { Foods } from '/imports/api/food/food';
 import FoodItem from '/imports/ui/components/FoodItem';
 import { withTracker } from 'meteor/react-meteor-data';
-import PropTypes from 'prop-types';1
+import PropTypes from 'prop-types';
 
 /** Renders a table containing all of the Food documents. Use <FoodItem> to render each row. */
 class Profile extends React.Component {
@@ -23,14 +23,19 @@ class Profile extends React.Component {
               <Grid.Column>
                 <Image circular size='small' className='profileImage'
                        src='https://m.media-amazon.com/images/M/MV5BMTkyNDQ3NzAxM15BMl5BanBnXkFtZTgwODIwMTQ0NTE@._V1_.jpg'/>
-                       <br/><br/>
+                <br/><br/>
                 <Modal trigger={<Button>Edit Photo</Button>}>
                   <Modal.Header>Select a Photo</Modal.Header>
                   <Modal.Content image>
-                    <Image wrapped size='medium' circular src='http://www.cernasolutions.com/wp-content/uploads/2017/05/Screen-Shot-2017-05-01-at-5.15.37-PM.png'/>
+                    <Image
+                        wrapped
+                        size='medium'
+                        circular
+                        src='http://www.cernasolutions.com/wp-content/uploads/2017/05/Screen-Shot-2017-05-01-at-5.15.37-PM.png'
+                    />
                     <Modal.Description>
                       <Header>Default Profile Image</Header>
-                      <TextArea placeholder='Enter Image URL here' />
+                      <TextArea placeholder='Enter Image URL here'/>
 
                     </Modal.Description>
                   </Modal.Content>
@@ -49,9 +54,9 @@ class Profile extends React.Component {
             </Grid>
           </Container>
           <Header as="h2" textAlign="center">Reviews Made:</Header>
-              <Card.Group itemsperRow={_.size(this.props.foods)}>
+          <Card.Group itemsperRow={_.size(this.props.foods)}>
             {this.props.foods.map((food) => <FoodItem key={food._id} food={food}/>)}
-            </Card.Group>
+          </Card.Group>
         </div>
     );
   }

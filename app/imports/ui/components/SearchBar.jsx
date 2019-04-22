@@ -1,19 +1,18 @@
-import _ from 'lodash'
-import React, { Component } from 'react'
-import { Search, Grid } from 'semantic-ui-react'
+import _ from 'lodash';
+import React, { Component } from 'react';
+import { Search, Grid } from 'semantic-ui-react';
 import { Foods } from '/imports/api/food/food';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
-import { Meteor } from "meteor/meteor";
+import { Meteor } from 'meteor/meteor';
 
 class SearchBar extends Component {
 
   componentWillMount() {
-    this.resetComponent()
+    this.resetComponent();
   }
 
-  resetComponent = () =>
-      this.setState({ isLoading: false, results: [], value: '' });
+  resetComponent = () => this.setState({ isLoading: false, results: [], value: '' });
 
   handleResultSelect = (e, { result }) => {
     this.setState({ value: result.name });

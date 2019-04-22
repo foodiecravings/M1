@@ -34,7 +34,7 @@ class FoodItem extends React.Component {
           <Card.Content>
             <Card.Header>Review From: {this.props.food.owner}</Card.Header>
             <Image circular className='landing-page-image' src={this.props.food.image}/>
-            <Card.Header>{this.props.food.name}</Card.Header>
+            <Card.Header>{this.props.food.food}</Card.Header>
             <Card.Meta>From: {this.props.food.restaurant}</Card.Meta>
             <Card.Content extra>
               <a>
@@ -49,23 +49,6 @@ class FoodItem extends React.Component {
             <Link to={`/edit/${this.props.food._id}`}>Edit</Link>
           </Card.Content>
         </Card>
-
-        /*{/!*<Table.Row>*!/}
-          {/!*<Table.Cell>{this.props.food.name}</Table.Cell>*!/}
-          {/!*<Table.Cell>{this.props.food.food}</Table.Cell>*!/}
-          {/!*<Table.Cell><Image floated='right' size='mini' src={this.props.food.image}/>*!/}
-          {/!*</Table.Cell>*!/}
-          {/!*<Table.Cell>{this.props.food.restaurant}</Table.Cell>*!/}
-          {/!*<Table.Cell>{this.props.food.price}</Table.Cell>*!/}
-          {/!*<Table.Cell>{this.props.food.rating}</Table.Cell>*!/}
-          {/!*<Table.Cell>{this.props.food.location}</Table.Cell>*!/}
-          {/!*<Table.Cell>*!/}
-            {/!*<Link to={`/edit/${this.props.food._id}`}>Edit</Link>*!/}
-          {/!*</Table.Cell>*!/}
-          {/!*<Table.Cell>*!/}
-            {/!*<Button basic onClick={this.onClick}>Delete</Button>*!/}
-          {/!*</Table.Cell>*!/}
-        {/!*</Table.Row>*!/}*/
     );
   }
 }

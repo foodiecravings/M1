@@ -31,7 +31,7 @@ class Profile extends React.Component {
                         wrapped
                         size='medium'
                         circular
-                        src='http://www.cernasolutions.com/wp-content/uploads/2017/05/Screen-Shot-2017-05-01-at-5.15.37-PM.png'
+                        src='https://m.media-amazon.com/images/M/MV5BMTkyNDQ3NzAxM15BMl5BanBnXkFtZTgwODIwMTQ0NTE@._V1_.jpg'
                     />
                     <Modal.Description>
                       <Header>Default Profile Image</Header>
@@ -48,6 +48,24 @@ class Profile extends React.Component {
                 <p>
                   Description: This is a description
                 </p>
+                <Modal trigger={<Button>Edit Photo</Button>}>
+                  <Modal.Header>Edit Profile</Modal.Header>
+                  <Modal.Content image>
+                    <Image
+                        wrapped
+                        size='medium'
+                        circular
+                        src='https://cdn.pixabay.com/photo/2017/02/23/13/05/profile-2092113_960_720.png'
+                    />
+                    <Modal.Description>
+                      <Header>Edit Profile</Header>
+                      <TextArea placeholder='Enter First Name'/>
+                      <TextArea placeholder='Enter Last Name'/>
+                      <TextArea placeholder='Tell us about yourself'/>
+                      <TextArea placeholder='Standing'/>
+                    </Modal.Description>
+                  </Modal.Content>
+                </Modal>
               </Grid.Column>
               <Grid.Column>
               </Grid.Column>

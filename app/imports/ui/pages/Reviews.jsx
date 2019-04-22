@@ -17,7 +17,7 @@ class Reviews extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
-        <Container>
+        <Container className="reviews-page-card-background">
           <Header as="h2" textAlign="center">Reviews</Header>
           <Table celled>
             <Table.Body>

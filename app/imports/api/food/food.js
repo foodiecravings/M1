@@ -23,7 +23,7 @@ const FoodSchema = new SimpleSchema({
   },
     location: {
       type: String,
-      allowedValues: ['Paradise Palms', 'Cafeteria', 'Off-Campus'],
+      allowedValues: ['Paradise Palms', 'Cafeteria', 'Off-Location'],
       defaultValue: 'Paradise Palms',
     },
     owner: String,

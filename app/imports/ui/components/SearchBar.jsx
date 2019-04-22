@@ -1,38 +1,37 @@
-import _ from 'lodash'
-import faker from 'faker'
-import React, { Component } from 'react'
-import { Search, Grid } from 'semantic-ui-react'
+import _ from 'lodash';
+import React, { Component } from 'react';
+import { Search, Grid } from 'semantic-ui-react';
+import { Foods } from '/imports/api/food/food';
+import PropTypes from 'prop-types';
+import { withTracker } from 'meteor/react-meteor-data';
+import { Meteor } from 'meteor/meteor';
 
-//reference digits part 2
-const source = _.times(5, () => ({
-  title: faker.company.companyName(),
-  description: faker.company.catchPhrase(),
-  image: faker.internet.avatar(),
-  price: faker.finance.amount(0, 100, 2, '$'),
-}))
+class SearchBar extends Component {
 
-export default class SearchBar extends Component {
   componentWillMount() {
-    this.resetComponent()
+    this.resetComponent();
   }
 
-  resetComponent = () =>
-      this.setState({ isLoading: false, results: [], value: '' });
+  resetComponent = () => this.setState({ isLoading: false, results: [], value: '' });
 
-  handleResultSelect = (e, { result }) => this.setState({ value: result.title });
+  handleResultSelect = (e, { result }) => {
+    this.setState({ value: result.name });
+    window.location.assign("/results");
+  }
 
-  handleSearchChange = (e, { value }) => {
+  handleSearchChange = (e, { value }) => {{
     this.setState({ isLoading: true, value });
+  }
 
     setTimeout(() => {
       if (this.state.value.length < 1) return this.resetComponent();
 
       const re = new RegExp(_.escapeRegExp(this.state.value), 'i');
-      const isMatch = result => re.test(result.title);
+      const isMatch = result => re.test(result.name);
 
       this.setState({
         isLoading: false,
-        results: _.filter(source, isMatch),
+        results: _.filter(this.props.foods, isMatch),
       })
     }, 300)
   };
@@ -46,7 +45,7 @@ export default class SearchBar extends Component {
             <Search className='search-bar'
                     fluid
                     placeholder='Search for your food'
-                    input={{ fluid: 'true', transparent:'true', icon: 'search', iconPosition: 'left' }}
+                    input={{ icon: 'search', iconPosition: 'left' }}
                     loading={isLoading}
                     onResultSelect={this.handleResultSelect}
                     onSearchChange={_.debounce(this.handleSearchChange, 500, {
@@ -78,3 +77,19 @@ export default class SearchBar extends Component {
     )
   }
 }
+
+/** Require an array of Food documents in the props. */
+SearchBar.propTypes = {
+  results: PropTypes.array.isRequired,
+  ready: PropTypes.bool.isRequired,
+};
+
+export default withTracker(() => {
+  // Get access to Food documents.
+  const subscription = Meteor.subscribe('Food');
+  return {
+    results: Foods.find({}).fetch(),
+    foods: Foods.find({}).fetch(),
+    ready: subscription.ready(),
+  };
+})(SearchBar);

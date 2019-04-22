@@ -30,7 +30,7 @@ class Landing extends React.Component {
                   <Card.Header>Featured Item</Card.Header>
                   <Image circular className='landing-page-image' src="/images/laulau.png"/>
                   <Card.Header>Lau Lau</Card.Header>
-                  <Card.Meta>From: Helena's Hawaiian Food</Card.Meta>
+                  <Card.Meta>From: Helena`s Hawaiian Food</Card.Meta>
                   <Card.Content extra>
                     <a>
                       Rating: 4.7 out of 5

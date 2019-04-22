@@ -1,11 +1,11 @@
 import React from 'react';
-import { Table, Image, Button } from 'semantic-ui-react';
+import { Image, Button, Card, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 import { Foods } from '/imports/api/food/food';
 import { Bert } from 'meteor/themeteorchef:bert';
 
-/** Renders a single row in the List Food table. See pages/Reviews.jsx. */
+/** Renders a single row in the List Food table. See pages/Profile.jsx. */
 class FoodItem extends React.Component {
 
   constructor(props) {
@@ -30,22 +30,25 @@ class FoodItem extends React.Component {
 
   render() {
     return (
-        <Table.Row>
-          <Table.Cell>{this.props.food.name}</Table.Cell>
-          <Table.Cell>{this.props.food.food}</Table.Cell>
-          <Table.Cell><Image floated='right' size='mini' src={this.props.food.image}/>
-          </Table.Cell>
-          <Table.Cell>{this.props.food.restaurant}</Table.Cell>
-          <Table.Cell>{this.props.food.price}</Table.Cell>
-          <Table.Cell>{this.props.food.rating}</Table.Cell>
-          <Table.Cell>{this.props.food.location}</Table.Cell>
-          <Table.Cell>
-            <Link to={`/edit/${this.props.food._id}`}>Edit</Link>
-          </Table.Cell>
-          <Table.Cell>
+        <Card raised centered className='landing-page-card-background'>
+          <Card.Content>
+            <Card.Header>Review From: {this.props.food.owner}</Card.Header>
+            <Image circular className='landing-page-image' src={this.props.food.image}/>
+            <Card.Header>{this.props.food.food}</Card.Header>
+            <Card.Meta>From: {this.props.food.restaurant}</Card.Meta>
+            <Card.Content extra>
+              <a>
+                Rating: 4.7 out of 5
+                <Icon name="star"/>
+              </a>
+            </Card.Content>
+          </Card.Content>
+          <Card.Content extra>Location: {this.props.food.location}</Card.Content>
+          <Card.Content>
             <Button basic onClick={this.onClick}>Delete</Button>
-          </Table.Cell>
-        </Table.Row>
+            <Link to={`/edit/${this.props.food._id}`}>Edit</Link>
+          </Card.Content>
+        </Card>
     );
   }
 }

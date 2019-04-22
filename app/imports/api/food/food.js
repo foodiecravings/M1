@@ -21,13 +21,18 @@ const FoodSchema = new SimpleSchema({
     allowedValues: ['1/5', '2/5', '3/5', '4/5', '5/5'],
     defaultValue: '3/5',
   },
-  location: {
-    type: String,
-    allowedValues: ['Paradise Palms', 'Cafeteria', 'Off-Campus'],
-    defaultValue: 'Paradise Palms',
+    location: {
+      type: String,
+      allowedValues: ['Paradise Palms', 'Cafeteria', 'Off-Campus'],
+      defaultValue: 'Paradise Palms',
+    },
+    owner: String,
   },
-  owner: String,
-}, { tracker: Tracker });
+{
+  tracker: Tracker
+}
+)
+;
 
 /** Attach this schema to the collection. */
 Foods.attachSchema(FoodSchema);

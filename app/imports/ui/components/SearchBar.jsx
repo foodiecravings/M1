@@ -7,8 +7,6 @@ import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from "meteor/meteor";
 
-const source = Meteor.settings.defaultFoods;
-
 
 class SearchBar extends Component {
 
@@ -34,7 +32,7 @@ class SearchBar extends Component {
 
       this.setState({
         isLoading: false,
-        results: _.filter(this.props.foods.name, isMatch),
+        results: _.filter(this.props.foods, isMatch),
       })
     }, 300)
   };
@@ -91,12 +89,16 @@ class SearchBar extends Component {
 
 /** Require an array of Food documents in the props. */
 SearchBar.propTypes = {
-
+  foods: PropTypes.array.isRequired,
+  ready: PropTypes.bool.isRequired,
 };
 
 export default withTracker(() => {
   // Get access to Food documents.
   const subscription = Meteor.subscribe('Food');
   return {
+    foods: Foods.find({}).fetch(),
+    ready: subscription.ready(),
   };
+
 })(SearchBar);

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Image, Header, Loader, Grid, Modal, Button, TextArea } from 'semantic-ui-react';
+import { Container, Image, Header, Loader, Grid, Modal, Button, TextArea, Card } from 'semantic-ui-react';
 import { Foods } from '/imports/api/food/food';
 import FoodItem from '/imports/ui/components/FoodItem';
 import { withTracker } from 'meteor/react-meteor-data';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';1
 
 /** Renders a table containing all of the Food documents. Use <FoodItem> to render each row. */
 class Profile extends React.Component {
@@ -48,9 +48,10 @@ class Profile extends React.Component {
               </Grid.Column>
             </Grid>
           </Container>
-            <Header as="h2" textAlign="center">Reviews Made:</Header>
-            {this.props.foods.map((food) => <FoodItem key={food._id} food={food}/>)
-              /* found issue here regarding exit code 1 */}
+          <Header as="h2" textAlign="center">Reviews Made:</Header>
+              <Card.Group itemsperRow={_.size(this.props.foods)}>
+            {this.props.foods.map((food) => <FoodItem key={food._id} food={food}/>)}
+            </Card.Group>
         </div>
     );
   }

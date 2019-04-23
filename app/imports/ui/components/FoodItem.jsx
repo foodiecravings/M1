@@ -32,7 +32,7 @@ class FoodItem extends React.Component {
     return (
         <Table.Row>
           <Table.Cell>{this.props.food.name}</Table.Cell>
-          <Table.Cell>{this.props.food.food}</Table.Cell>
+          <Table.Cell>{this.props.food.title}</Table.Cell>
           <Table.Cell><Image floated='right' size='mini' src={this.props.food.image}/>
           </Table.Cell>
           <Table.Cell>{this.props.food.cost}</Table.Cell>

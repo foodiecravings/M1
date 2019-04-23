@@ -8,10 +8,10 @@ const Foods = new Mongo.Collection('Foods');
 /** Create a schema to constrain the structure of documents associated with this collection. */
 const FoodSchema = new SimpleSchema({
   name: String,
-  food: String,
+  title: String,
   image: String,
-  cost: String,
-  location: String,
+  price: String,
+  description: String,
   owner: String,
 }, { tracker: Tracker });
 

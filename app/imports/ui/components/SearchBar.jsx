@@ -6,12 +6,6 @@ import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 
-const source = _.times(1, () => ({
-  title: 'Lau Lau',
-  name: 'this is a description',
-  image: 'image',
-  price: 100,
-}));
 
 class SearchBar extends Component {
 
@@ -22,7 +16,7 @@ class SearchBar extends Component {
   resetComponent = () => this.setState({ isLoading: false, results: [], value: '' });
 
   handleResultSelect = (e, { result }) => {
-    this.setState({ value: result.name });
+    this.setState({ value: result.title });
   }
 
   handleSearchChange = (e, { value }) => {
@@ -32,7 +26,7 @@ class SearchBar extends Component {
       if (this.state.value.length < 1) return this.resetComponent();
 
       const re = new RegExp(_.escapeRegExp(this.state.value), 'i');
-      const isMatch = result => re.test(result.name);
+      const isMatch = result => re.test(result.title);
 
       this.setState({
         isLoading: false,

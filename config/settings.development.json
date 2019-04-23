@@ -53,34 +53,34 @@
   "defaultFoods": [
     {
       "name": "L&L Hawaiian BBQ",
-      "food": "Loco Moco",
+      "title": "Loco Moco",
       "image": "https://i.ytimg.com/vi/SEYD2ZudvME/hqdefault.jpg",
-      "cost": "~8.99",
-      "location": "Makiki, Honolulu",
+      "price": "~8.99",
+      "description": "Makiki, Honolulu",
       "owner": "john@foo.com"
     },
     {
       "name": "Konos",
-      "food": "Breakfeast Burrito ",
+      "title": "Breakfeast Burrito ",
       "image": "http://dining.staradvertiser.com/wp-content/uploads/2016/10/DO10092016_15.jpg",
-      "cost": "~7.99",
-      "location": "Kaimuki, Honolulu",
+      "price": "~7.99",
+      "description": "Kaimuki, Honolulu",
       "owner": "john@foo.com"
     },
     {
       "name": "Juicy Brew",
-      "food": "Ulu Chili",
+      "title": "Ulu Chili",
       "image": "http://4.bp.blogspot.com/-ETxZycj5SUA/U9CQf3GSzCI/AAAAAAAAHkU/Rvf7zAyHOSY/s1600/breadfruitkeralan.jpg",
-      "cost": "~4.99",
-      "location": "Kaimuki, Honolulu",
+      "price": "~4.99",
+      "description": "Kaimuki, Honolulu",
       "owner": "john@foo.com"
     },
     {
       "name": "Kona Brewing Company",
-      "food": "Calamari",
+      "title": "Calamari",
       "image": "https://cookinginsens.files.wordpress.com/2011/10/img_6308b.jpg",
-      "cost": "~10.99",
-      "location": "Hawaii Kai, Honolulu",
+      "price": "~10.99",
+      "description": "Hawaii Kai, Honolulu",
       "owner": "john@foo.com"
     }
   ]

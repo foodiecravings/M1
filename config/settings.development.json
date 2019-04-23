@@ -42,8 +42,8 @@
       "lastname": "Last Name",
       "bio": "I like food",
       "photo": "none",
-      "standing": "Senior",
-      "owner": "john@foo.com"
+      "owner": "john@foo.com",
+      "standing": "Senior"
     }
   ],
   "defaultReports": [

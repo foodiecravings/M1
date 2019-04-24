@@ -36,16 +36,6 @@
       "condition": "excellent"
     }
   ],
-  "defaultProfile": [
-    {
-      "firstname": "First Name",
-      "lastname": "Last Name",
-      "bio": "I like food",
-      "photo": "none",
-      "owner": "john@foo.com",
-      "standing": "Senior"
-    }
-  ],
   "defaultReports": [
     {
       "name": "John",

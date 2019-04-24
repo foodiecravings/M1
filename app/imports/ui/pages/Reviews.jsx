@@ -54,7 +54,7 @@ Reviews.propTypes = {
 export default withTracker(() => {
   // Get access to Food and Profile documents.
   const subscription = Meteor.subscribe('Food');
-  const subscription2 = Meteor.subscribe('Profiles');
+  const subscription2 = Meteor.subscribe('Profile');
   return {
     foods: Foods.find({}).fetch(),
     profiles: Profiles.find({}).fetch(),

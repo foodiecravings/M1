@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
-import { withRouter, NavLink } from 'react-router-dom';
+import { withRouter, NavLink, Link } from 'react-router-dom';
 import { Menu, Dropdown, Image } from 'semantic-ui-react';
 import { Roles } from 'meteor/alanning:roles';
 
@@ -40,7 +40,7 @@ class NavBar extends React.Component {
                 <Dropdown text={this.props.currentUser} pointing="top right" icon={'user'}>
                   <Dropdown.Menu>
                     <Dropdown.Item icon="sign out" text="Sign Out" as={NavLink} exact to="/signout"/>
-                    <Dropdown.Item icon="address card outline" text="Update Profile" as={NavLink} exact to="/profile"/>
+                    <Dropdown.Item icon="address card outline" text="Update Profile" as={NavLink} exact to={`/profile/${this.props.currentUser}`}/>
                   </Dropdown.Menu>
                 </Dropdown>
             )}
@@ -62,3 +62,4 @@ const NavBarContainer = withTracker(() => ({
 
 /** Enable ReactRouter for this component. https://reacttraining.com/react-router/web/api/withRouter */
 export default withRouter(NavBarContainer);
+

@@ -17,12 +17,17 @@ class UpdateProfile extends React.Component {
 
   /** On successful submit, insert the data. */
   submit(data) {
-    const { firstname, lastname, bio, photo, standing, _id } = data;
-    Profiles.update(_id, { $set: { firstname, lastname, bio, photo, standing} }, (error) => (error ?
-        Bert.alert({ type: 'danger', message: `Update failed: ${error.message}` }) :
-        Bert.alert({ type: 'success', message: 'Update succeeded' })));
+    if (Profiles.find().count() === 0) {
+      const { firstname, lastname, bio, photo, standing } = data;
+      const owner = Meteor.user().username;
+      Profiles.insert({ firstname, lastname, bio, photo, standing, owner });
+    } else {
+      const { firstname, lastname, bio, photo, standing, _id } = data;
+      Profiles.update(_id, { $set: { firstname, lastname, bio, photo, standing } }, (error) => (error ?
+          Bert.alert({ type: 'danger', message: `Update failed: ${error.message}` }) :
+          Bert.alert({ type: 'success', message: 'Update succeeded' })));
+    }
   }
-
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
@@ -43,7 +48,7 @@ class UpdateProfile extends React.Component {
                 <TextField name='standing'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
-                <HiddenField name='owner' />
+                <HiddenField name='owner' value={Meteor.user().username}/>
               </Segment>
             </AutoForm>
           </Grid.Column>
@@ -64,7 +69,7 @@ export default withTracker(({ match }) => {
   // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
   const documentId = match.params._id;
   // Get access to Profile documents.
-  const subscription = Meteor.subscribe('Profiles');
+  const subscription = Meteor.subscribe('Profile');
   return {
     doc: Profiles.findOne(documentId),
     ready: subscription.ready(),

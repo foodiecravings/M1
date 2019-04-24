@@ -4,7 +4,7 @@ import { Profiles } from '../../api/profile/profile.js';
 
 /** Initialize the database with a default data document. */
 function addData(data) {
-  console.log(`  Adding: ${data.firstname} (${data.lastname})`);
+  console.log(`  Adding: ${data.firstname} (${data.owner})`);
   Profiles.insert(data);
 }
 
@@ -17,7 +17,7 @@ if (Profiles.find().count() === 0) {
 }
 
 /** This subscription publishes only the documents associated with the logged in user */
-Meteor.publish('Profiles', function publish() {
+Meteor.publish('Profile', function publish() {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
     return Profiles.find({ owner: username });

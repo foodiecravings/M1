@@ -1,9 +1,11 @@
 import React from 'react';
-import { Image, Button, Card, Icon } from 'semantic-ui-react';
+import { Image, Button, Card, Icon, Feed } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 import { Foods } from '/imports/api/food/food';
 import { Bert } from 'meteor/themeteorchef:bert';
+import Note from '/imports/ui/components/Note';
+import AddNote from '/imports/ui/components/AddNote';
 
 /** Renders a single row in the List Food table. See pages/Profile.jsx. */
 class FoodItem extends React.Component {
@@ -38,7 +40,7 @@ class FoodItem extends React.Component {
             <Card.Meta>From: {this.props.food.restaurant}</Card.Meta>
             <Card.Content extra>
               <a>
-                Rating: 4.7 out of 5
+                {this.props.food.rating}
                 <Icon name="star"/>
               </a>
             </Card.Content>
@@ -48,6 +50,14 @@ class FoodItem extends React.Component {
             <Button basic onClick={this.onClick}>Delete</Button>
             <Link to={`/edit/${this.props.food._id}`}>Edit</Link>
           </Card.Content>
+          <Card.Content extra>
+            <Feed>
+              {this.props.notes.map((note, index) => <Note key={index} note={note}/>)}
+            </Feed>
+          </Card.Content>
+          <Card.Content extra>
+            <AddNote owner={this.props.food.owner} foodId={this.props.food._id}/>
+          </Card.Content>
         </Card>
     );
   }
@@ -56,6 +66,7 @@ class FoodItem extends React.Component {
 /** Require a document to be passed to this component. */
 FoodItem.propTypes = {
   food: PropTypes.object.isRequired,
+  notes: PropTypes.object.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */

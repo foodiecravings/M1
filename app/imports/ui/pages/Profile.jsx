@@ -2,6 +2,7 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Container, Image, Header, Loader, Grid, Modal, Button, TextArea, Card } from 'semantic-ui-react';
 import { Foods } from '/imports/api/food/food';
+import { Notes } from '/imports/api/note/note';
 import FoodItem from '/imports/ui/components/FoodItem';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
@@ -73,7 +74,9 @@ class Profile extends React.Component {
           </Container>
           <Header as="h2" textAlign="center">Reviews Made:</Header>
           <Card.Group itemsperRow={_.size(this.props.foods)}>
-            {this.props.foods.map((food) => <FoodItem key={food._id} food={food}/>)}
+            {this.props.foods.map((food, index) => <FoodItem key={index}
+                         food={food}
+                         notes={this.props.notes.filter(note => (note.contactId === food._id))}/>)}
           </Card.Group>
         </div>
     );
@@ -83,6 +86,7 @@ class Profile extends React.Component {
 /** Require an array of Food documents in the props. */
 Profile.propTypes = {
   foods: PropTypes.array.isRequired,
+  notes: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -90,8 +94,10 @@ Profile.propTypes = {
 export default withTracker(() => {
   // Get access to Food documents.
   const subscription = Meteor.subscribe('Food');
+  const subscription2 = Meteor.subscribe('Notes');
   return {
     foods: Foods.find({}).fetch(),
-    ready: subscription.ready(),
+    notes: Notes.find({}).fetch(),
+    ready: (subscription.ready() && subscription2.ready()),
   };
 })(Profile);

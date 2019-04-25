@@ -28,10 +28,11 @@ class SearchBar extends Component {
     this.setState({ renderResults: true });
   };
 
-  handleSearchChange = (e, { value }) => {{
-    this.setState({ isLoading: true, value });
+  handleSearchChange = (e, { value }) => {
+    {
+      this.setState({ isLoading: true, value });
 
-  }
+    }
 
     setTimeout(() => {
       if (this.state.value.length < 1) return this.resetComponent();
@@ -50,7 +51,10 @@ class SearchBar extends Component {
     const { isLoading, value, results } = this.state;
 
     if (this.state.renderResults) {
-      return <Redirect to='/results'/>;
+      return <Redirect to={{
+        pathname: '/results',
+        state: { referrer: results },
+      }}/>;
     }
 
     return (

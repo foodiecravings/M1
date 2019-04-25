@@ -30,6 +30,16 @@ class FoodItem extends React.Component {
     }
   }
 
+  addFav() {
+    if(this.props.food.favorite === false){
+      this.props.food.favorite = true;
+      Bert.alert({ type: 'success', message: 'Favorites add succeeded' });
+    } else {
+      this.props.food.favorite = false;
+      Bert.alert({ type: 'danger', message: 'Favorites removed' });
+    }
+  }
+
   render() {
     return (
         <Card raised centered className='landing-page-card-background'>
@@ -42,6 +52,8 @@ class FoodItem extends React.Component {
               <a>
                 {this.props.food.rating}
                 <Icon name="star"/>
+                {this.props.food.favorite}
+                <Button basic onClick={this.addFav}>Add to Favorites</Button>
               </a>
             </Card.Content>
           </Card.Content>

@@ -23,9 +23,9 @@ class AddNote extends React.Component {
   /** Notify the user of the results of the submit. If successful, clear the form. */
   insertCallback(error) {
     if (error) {
-      Bert.alert({ type: 'danger', message: `Add Note failed: ${error.message}` });
+      Bert.alert({ type: 'danger', message: `Add Comment failed: ${error.message}` });
     } else {
-      Bert.alert({ type: 'success', message: 'Add Note succeeded' });
+      Bert.alert({ type: 'success', message: 'Add Comment succeeded' });
       this.formRef.reset();
     }
   }
@@ -41,7 +41,7 @@ class AddNote extends React.Component {
     return (
             <AutoForm ref={(ref) => { this.formRef = ref; }} schema={NoteSchema} onSubmit={this.submit}>
               <Segment>
-                <TextField label="Add a timestamped note" name='note'/>
+                <TextField label="Add comment here" name='note'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
                 <HiddenField name='owner' value={this.props.owner}/>

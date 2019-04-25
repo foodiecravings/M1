@@ -1,12 +1,11 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import { Menu, Header, Icon } from 'semantic-ui-react';
 
 
 /** The Footer appears at the bottom of every page. Rendered by the App Layout component. */
 class Footer extends React.Component {
   render() {
-    const menuStyle = { marginBottom: '10px' };
+    const menuStyle = { marginBottom: '10px', marginTop: '20px' };
     return (
         <footer>
           <Menu style={menuStyle} attached="top" borderless inverted>

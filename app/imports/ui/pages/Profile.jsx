@@ -1,77 +1,103 @@
 import React from 'react';
-import { Grid, Loader, Header, Segment } from 'semantic-ui-react';
-import { Profiles, ProfilesSchema } from '/imports/api/profile/profile';
-import { Bert } from 'meteor/themeteorchef:bert';
-import AutoForm from 'uniforms-semantic/AutoForm';
-import TextField from 'uniforms-semantic/TextField';
-import LongTextField from 'uniforms-semantic/LongTextField';
-import SubmitField from 'uniforms-semantic/SubmitField';
-import HiddenField from 'uniforms-semantic/HiddenField';
-import ErrorsField from 'uniforms-semantic/ErrorsField';
 import { Meteor } from 'meteor/meteor';
+import { Container, Image, Header, Loader, Grid, Modal, Button, TextArea, Card } from 'semantic-ui-react';
+import { Foods } from '/imports/api/food/food';
+import { Notes } from '/imports/api/note/note';
+import FoodItem from '/imports/ui/components/FoodItem';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 
-/** Renders the Page for editing a single document. */
-class UpdateProfile extends React.Component {
+/** Renders a table containing all of the Food documents. Use <FoodItem> to render each row. */
+class Profile extends React.Component {
 
-  /** On successful submit, insert the data. */
-  submit(data) {
-    if (Profiles.find().count() === 0) {
-      const { firstname, lastname, bio, photo, standing } = data;
-      const owner = Meteor.user().username;
-      Profiles.insert({ firstname, lastname, bio, photo, standing, owner });
-    } else {
-      const { firstname, lastname, bio, photo, standing, _id } = data;
-      Profiles.update(_id, { $set: { firstname, lastname, bio, photo, standing } }, (error) => (error ?
-          Bert.alert({ type: 'danger', message: `Update failed: ${error.message}` }) :
-          Bert.alert({ type: 'success', message: 'Update succeeded' })));
-    }
-  }
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
-  /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
+  /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
-        <Grid container centered>
-          <Grid.Column>
-            <Header as="h2" textAlign="center">Update Profile</Header>
-            <AutoForm schema={ProfilesSchema} onSubmit={this.submit} model={this.props.doc}>
-              <Segment>
-                <TextField name='firstname'/>
-                <TextField name='lastname'/>
-                <LongTextField name='bio'/>
-                <TextField name='photo'/>
-                <TextField name='standing'/>
-                <SubmitField value='Submit'/>
-                <ErrorsField/>
-                <HiddenField name='owner' value={Meteor.user().username}/>
-              </Segment>
-            </AutoForm>
-          </Grid.Column>
-        </Grid>
+        <div className='landing'>
+          <Container className='profileBackground'>
+            <Grid centered columns={2}>
+              <Grid.Column>
+                <Image circular size='small' className='profileImage'
+                       src='https://m.media-amazon.com/images/M/MV5BMTkyNDQ3NzAxM15BMl5BanBnXkFtZTgwODIwMTQ0NTE@._V1_.jpg'/>
+                <br/><br/>
+                <Modal trigger={<Button>Edit Photo</Button>}>
+                  <Modal.Header>Select a Photo</Modal.Header>
+                  <Modal.Content image>
+                    <Image
+                        wrapped
+                        size='medium'
+                        circular
+                        src='https://m.media-amazon.com/images/M/MV5BMTkyNDQ3NzAxM15BMl5BanBnXkFtZTgwODIwMTQ0NTE@._V1_.jpg'
+                    />
+                    <Modal.Description>
+                      <Header>Default Profile Image</Header>
+                      <TextArea placeholder='Enter Image URL here'/>
+
+                    </Modal.Description>
+                  </Modal.Content>
+                </Modal>
+              </Grid.Column>
+              <Grid.Column>
+                <p>
+                  Name: Roderick Tabalba
+                </p>
+                <p>
+                  Description: This is a description
+                </p>
+                <Modal trigger={<Button>Edit Photo</Button>}>
+                  <Modal.Header>Edit Profile</Modal.Header>
+                  <Modal.Content image>
+                    <Image
+                        wrapped
+                        size='medium'
+                        circular
+                        src='https://cdn.pixabay.com/photo/2017/02/23/13/05/profile-2092113_960_720.png'
+                    />
+                    <Modal.Description>
+                      <Header>Edit Profile</Header>
+                      <TextArea placeholder='Enter First Name'/>
+                      <TextArea placeholder='Enter Last Name'/>
+                      <TextArea placeholder='Tell us about yourself'/>
+                      <TextArea placeholder='Standing'/>
+                    </Modal.Description>
+                  </Modal.Content>
+                </Modal>
+              </Grid.Column>
+              <Grid.Column>
+              </Grid.Column>
+            </Grid>
+          </Container>
+          <Header as="h2" textAlign="center">Reviews Made:</Header>
+          <Card.Group itemsperRow={_.size(this.props.foods)}>
+            {this.props.foods.map((food, index) => <FoodItem key={index}
+                                                             food={food}
+                                                             notes={this.props.notes.filter(note => (note.foodId === food._id))}/>)}
+          </Card.Group>
+        </div>
     );
   }
 }
 
-/** Require the presence of a Profile document in the props object. Uniforms adds 'model' to the props, which we use. */
-UpdateProfile.propTypes = {
-  doc: PropTypes.object,
-  model: PropTypes.object,
+/** Require an array of Food documents in the props. */
+Profile.propTypes = {
+  foods: PropTypes.array.isRequired,
+  notes: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
-export default withTracker(({ match }) => {
-  // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
-  const documentId = match.params._id;
-  // Get access to Profile documents.
-  const subscription = Meteor.subscribe('Profile');
+export default withTracker(() => {
+  // Get access to Food documents.
+  const subscription = Meteor.subscribe('Food');
+  const subscription2 = Meteor.subscribe('Notes');
   return {
-    doc: Profiles.findOne(documentId),
-    ready: subscription.ready(),
+    foods: Foods.find({}).fetch(),
+    notes: Notes.find({}).fetch(),
+    ready: (subscription.ready() && subscription2.ready()),
   };
-})(UpdateProfile);
+})(Profile);

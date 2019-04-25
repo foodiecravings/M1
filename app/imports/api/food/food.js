@@ -10,10 +10,29 @@ const FoodSchema = new SimpleSchema({
   name: String,
   food: String,
   image: String,
-  cost: String,
-  location: String,
-  owner: String,
-}, { tracker: Tracker });
+  restaurant: String,
+  price: {
+    type: String,
+    allowedValues: ['$0-$8', '$9-$15', '$16-$25', '$26++'],
+    defaultValue: '$0-$8',
+  },
+  rating: {
+    type: String,
+    allowedValues: ['1/5', '2/5', '3/5', '4/5', '5/5'],
+    defaultValue: '3/5',
+  },
+    location: {
+      type: String,
+      allowedValues: ['Paradise Palms', 'Cafeteria', 'Off-Location'],
+      defaultValue: 'Paradise Palms',
+    },
+    owner: String,
+  },
+{
+  tracker: Tracker
+}
+)
+;
 
 /** Attach this schema to the collection. */
 Foods.attachSchema(FoodSchema);

@@ -15,10 +15,12 @@ class NavBar extends React.Component {
           <Menu.Item as={NavLink} activeClassName="" exact to="/">
             <Image size='tiny' src="/images/logo.png"/>
           </Menu.Item>
-          <Menu.Item as={NavLink} activeClassName="active" exact to="/contact" key='contact'>Contact
-            Us</Menu.Item>
           {this.props.currentUser ? (
               [<Menu.Item as={NavLink} activeClassName="active" exact to="/add" key='add'>Add Food</Menu.Item>,
+                <Menu.Item as={NavLink} activeClassName="active" exact to="/profile" key='profile'>Profile</Menu.Item>,
+                <Menu.Item as={NavLink} activeClassName="active" exact to="/contact" key='contact'>Contact
+                  Us</Menu.Item>,
+                <Menu.Item as={NavLink} activeClassName="active" exact to="/results" key='results'>Search Results</Menu.Item>]
                 <Menu.Item as={NavLink} activeClassName="active" exact to="/list" key='list'>Reviews</Menu.Item> ]
           ) : ''}
           {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
@@ -61,4 +63,3 @@ const NavBarContainer = withTracker(() => ({
 
 /** Enable ReactRouter for this component. https://reacttraining.com/react-router/web/api/withRouter */
 export default withRouter(NavBarContainer);
-

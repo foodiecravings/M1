@@ -1,13 +1,13 @@
 {
   "defaultAccounts": [
     {
-      "email": "john@foo.com",
-      "password": "changeme"
-    },
-    {
       "email": "admin@foo.com",
       "password": "changeme",
       "role": "admin"
+    },
+    {
+      "email": "john@foo.com",
+      "password": "changeme"
     }
   ],
   "defaultData": [
@@ -36,6 +36,7 @@
       "condition": "excellent"
     }
   ],
+
   "defaultReports": [
     {
       "name": "John",
@@ -48,6 +49,38 @@
     {
       "name": "John",
       "description": "There's are inappropriate review under hamburgers"
+    }
+  ],
+  "defaultFoods": [
+    {
+      "name": "John",
+      "food": "Loco Moco",
+      "image": "https://i.ytimg.com/vi/SEYD2ZudvME/hqdefault.jpg",
+      "restaurant": "L&L",
+      "price": "$0-$8",
+      "rating": "1/5",
+      "location": "Off-Location",
+      "owner": "john@foo.com"
+    },
+    {
+      "name": "John",
+      "food": "Breakfast Burrito",
+      "image": "http://dining.staradvertiser.com/wp-content/uploads/2016/10/DO10092016_15.jpg",
+      "restaurant": "Konos",
+      "price": "$0-$8",
+      "rating": "3/5",
+      "location": "Off-Location",
+      "owner": "john@foo.com"
+    },
+    {
+      "name": "Louis",
+      "food": "Loco Moco",
+      "image": "http://4.bp.blogspot.com/-ETxZycj5SUA/U9CQf3GSzCI/AAAAAAAAHkU/Rvf7zAyHOSY/s1600/breadfruitkeralan.jpg",
+      "restaurant": "L&L",
+      "price": "$0-$8",
+      "rating": "4/5",
+      "location": "Paradise Palms",
+      "owner": "john@foo.com"
     }
   ]
 }

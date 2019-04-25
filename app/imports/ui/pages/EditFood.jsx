@@ -5,6 +5,7 @@ import { Bert } from 'meteor/themeteorchef:bert';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import SubmitField from 'uniforms-semantic/SubmitField';
+import SelectField from 'uniforms-semantic/SelectField';
 import HiddenField from 'uniforms-semantic/HiddenField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
 import { Meteor } from 'meteor/meteor';
@@ -16,8 +17,8 @@ class EditFood extends React.Component {
 
   /** On successful submit, insert the data. */
   submit(data) {
-    const { name, food, image, cost, location, _id } = data;
-    Foods.update(_id, { $set: { name, food, image, cost, location } }, (error) => (error ?
+    const { name, food, image, restaurant, price, rating, location, _id } = data;
+    Foods.update(_id, { $set: { name, food, image, restaurant, price, rating, location } }, (error) => (error ?
         Bert.alert({ type: 'danger', message: `Update failed: ${error.message}` }) :
         Bert.alert({ type: 'success', message: 'Update succeeded' })));
   }
@@ -38,11 +39,13 @@ class EditFood extends React.Component {
                 <TextField name='name'/>
                 <TextField name='food'/>
                 <TextField name='image'/>
-                <TextField name='cost'/>
-                <TextField name='location'/>
+                <TextField name='restaurant'/>
+                <SelectField name='price'/>
+                <SelectField name='rating'/>
+                <SelectField name='location'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
-                <HiddenField name='owner' />
+                <HiddenField name='owner'/>
               </Segment>
             </AutoForm>
           </Grid.Column>

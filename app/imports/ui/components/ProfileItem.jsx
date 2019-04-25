@@ -13,14 +13,14 @@ class ProfileItem extends React.Component {
           <Item>
             <Item.Image size='tiny' src={this.props.profile.photo} />
             <Item.Content>
-              <Item.Header as='a'>{this.props.profile.firstname} {this.props.profile.lastname}</Item.Header>
+              <Item.Header>{this.props.profile.firstname} {this.props.profile.lastname}</Item.Header>
               <Item.Meta>Bio</Item.Meta>
               <Item.Description>
                 {this.props.profile.bio}
               </Item.Description>
               <Item.Extra>{this.props.profile.standing}</Item.Extra>
               <Item.Extra>
-                <Link to={`/profile/${this.props.profile._id}`}>Edit</Link>
+                <Link to={`/UpdateProfile/${this.props.profile._id}`}>Edit</Link>
               </Item.Extra>
             </Item.Content>
           </Item>

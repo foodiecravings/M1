@@ -76,7 +76,7 @@ class Profile extends React.Component {
           <Card.Group itemsperRow={_.size(this.props.foods)}>
             {this.props.foods.map((food, index) => <FoodItem key={index}
                          food={food}
-                         notes={this.props.notes.filter(note => (note.contactId === food._id))}/>)}
+                         notes={this.props.notes.filter(note => (note.foodId === food._id))}/>)}
           </Card.Group>
         </div>
     );

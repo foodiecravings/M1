@@ -8,6 +8,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import ProfileItem from '/imports/ui/components/ProfileItem';
 import { Profiles } from '/imports/api/profile/profile';
+import { Link } from 'react-router-dom';
 
 
 
@@ -30,7 +31,12 @@ class Profile extends React.Component {
                 {this.props.profiles.map((profile) => <ProfileItem key={profile._id} profile={profile} />)}
               </Grid.Column>
               <Grid.Column>
-              </Grid.Column>
+                {this.props.currentUser === '' ? (
+                    <Link to={`/UpdateProfile/${this.props.profiles._id}`}>Add a Profile</Link>
+                ):(
+                    <Header as='h2' textAlign="center">Welcome to FoodieCravings</Header>
+                )}
+                  </Grid.Column>
               <Grid.Column>
               </Grid.Column>
             </Grid>
@@ -49,6 +55,7 @@ Profile.propTypes = {
   notes: PropTypes.array.isRequired,
   profiles: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
+  currentUser: PropTypes.string,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
@@ -61,6 +68,7 @@ export default withTracker(() => {
     foods: Foods.find({}).fetch(),
     notes: Notes.find({}).fetch(),
     profiles: Profiles.find({}).fetch(),
+    currentUser: Profiles.find({}).fetch() == 0 ? '' : Profiles.findOne(Meteor.user()),
     ready: (subscription.ready() && subscription2.ready() && subscription3.ready()),
   };
 })(Profile);

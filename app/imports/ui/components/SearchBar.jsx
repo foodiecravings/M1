@@ -75,23 +75,6 @@ class SearchBar extends Component {
             />
           </Grid.Column>
         </Grid>
-
-        /* renders back end database stuff, good for visualizing the data.
-        <Grid.Column width={10}>
-          <Segment>
-            <Header>State</Header>
-            <pre style={{ overflowX: 'auto' }}>
-              {JSON.stringify(this.state, null, 2)}
-            </pre>
-            <Header>Options</Header>
-            <pre style={{ overflowX: 'auto' }}>
-              {JSON.stringify(source, null, 2)}
-            </pre>
-          </Segment>
-        </Grid.Column>
-      </Grid>
-      */
-
     );
   }
 }

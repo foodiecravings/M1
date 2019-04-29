@@ -28,17 +28,15 @@ class SearchBar extends Component {
     this.setState({ renderResults: true });
   };
 
-  handleSearchChange = (e, { value }) => {
-    {
+  handleSearchChange = (e, { value }) => { {
       this.setState({ isLoading: true, value });
-
     }
 
     setTimeout(() => {
       if (this.state.value.length < 1) return this.resetComponent();
 
       const re = new RegExp(_.escapeRegExp(this.state.value), 'i');
-      const isMatch = result => re.test(result.title);
+      const isMatch = result => re.test(result.food);
 
       this.setState({
         isLoading: false,
@@ -98,7 +96,7 @@ class SearchBar extends Component {
 
 /** Require an array of Food documents in the props. */
 SearchBar.propTypes = {
-  foods: PropTypes.array.isRequired,
+  foods: PropTypes.object.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 

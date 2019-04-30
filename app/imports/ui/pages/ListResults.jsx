@@ -6,7 +6,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import FoodResultItem from '../components/FoodResultItem';
 
-/** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
+/** Renders a table containing all of the Food documents. Use <FoodItem> to render each row. */
 class ListResults extends React.Component {
 
 /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */

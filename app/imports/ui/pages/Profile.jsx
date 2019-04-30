@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Image, Header, Loader, Grid, Modal, Button, TextArea, Card } from 'semantic-ui-react';
+import { Container, Header, Loader, Grid } from 'semantic-ui-react';
 import { Foods } from '/imports/api/food/food';
 import { Notes } from '/imports/api/note/note';
 import FoodItem from '/imports/ui/components/FoodItem';
@@ -9,8 +9,6 @@ import PropTypes from 'prop-types';
 import ProfileItem from '/imports/ui/components/ProfileItem';
 import { Profiles } from '/imports/api/profile/profile';
 import { Link } from 'react-router-dom';
-
-
 
 /** Renders a table containing all of the Food documents. Use <FoodItem> to render each row. */
 class Profile extends React.Component {
@@ -69,7 +67,7 @@ export default withTracker(() => {
     foods: Foods.find({}).fetch(),
     notes: Notes.find({}).fetch(),
     profiles: Profiles.find({}).fetch(),
-    currentUser: Profiles.find({}).fetch() == 0 ? '' : Profiles.findOne(Meteor.user()),
+    currentUser: Profiles.find({}).fetch() === 0 ? '' : Profiles.findOne(Meteor.user()),
     ready: (subscription.ready() && subscription2.ready() && subscription3.ready()),
   };
 })(Profile);

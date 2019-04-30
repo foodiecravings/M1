@@ -1,14 +1,13 @@
 import React from 'react';
-import { Meteor } from 'meteor/meteor';
-import { Container, Segment, Header, } from 'semantic-ui-react';
+import { Container, Segment, Header } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import LongTextField from 'uniforms-semantic/LongTextField';
 import SubmitField from 'uniforms-semantic/SubmitField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
 import { Reports, ReportSchema } from '/imports/api/report/report';
-import { withTracker } from 'meteor/react-meteor-data';
-/** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
+import { Bert } from 'meteor/themeteorchef:bert';
+/** Renders a table containing all of the Contact documents. Use <ProfileItem> to render each row. */
 class ContactUs extends React.Component {
 
   constructor(props) {

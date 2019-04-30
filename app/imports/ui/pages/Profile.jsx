@@ -54,7 +54,8 @@ class Profile extends React.Component {
               <Header as="h2" textAlign="center">Favorites:</Header>
             </Grid.Row>
           <Grid.Row>
-            {(this.props.foods.filter(foods => foods.favorite === true).map((food, index) => <FoodItem key={index} food={food}/>))}
+            {(this.props.foods.filter(foods => foods.favorite === true).map((food, index) => <FoodItem key={index} food={food}
+                   notes={this.props.notes.filter(note => (note.foodId === food._id))}/>))}
           </Grid.Row>
           </Grid>
         </div>

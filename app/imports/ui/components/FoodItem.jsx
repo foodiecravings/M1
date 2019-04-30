@@ -61,7 +61,7 @@ class FoodItem extends React.Component {
           </Card.Content>
           <Card.Content extra>
             <Feed>
-              {/*{this.props.notes.map((note, index) => <Note key={index} note={note}/>)}*/}
+              {this.props.notes.map((note, index) => <Note key={index} note={note}/>)}
             </Feed>
           </Card.Content>
           <Card.Content extra>

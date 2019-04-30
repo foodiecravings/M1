@@ -36,7 +36,7 @@ class SearchBar extends Component {
       if (this.state.value.length < 1) return this.resetComponent();
 
       const re = new RegExp(_.escapeRegExp(this.state.value), 'i');
-      const isMatch = result => re.test(result.food);
+      const isMatch = result => re.test(result.title);
 
       this.setState({
         isLoading: false,

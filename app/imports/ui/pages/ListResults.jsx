@@ -21,7 +21,7 @@ renderPage() {
       <Container>
         <Header as="h2" textAlign="center">Search Results</Header>
         <Card.Group>
-          {this.props.location.state.referrer.map((food) => <FoodResultItem key={food._id} food={food} />)}
+          {this.props.location.state.referrer.map((food, index) => <FoodResultItem key={index} food={food} />)}
         </Card.Group>
       </Container>
   );

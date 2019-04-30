@@ -53,18 +53,28 @@
   "defaultFoods": [
     {
       "name": "John",
-      "food": "Loco Moco",
-      "image": "app/public/images/locomoco300x300px.png",
+      "title": "Loco Moco",
+      "image": "/images/locomoco300x300px.png",
       "restaurant": "L&L",
       "price": "$0-$8",
-      "rating": "1/5",
+      "rating": "3/5",
+      "location": "Paradise Palms",
+      "owner": "john@foo.com"
+    },
+    {
+      "name": "John",
+      "title": "Loco Moco",
+      "image": "/images/locomoco300x300px.png",
+      "restaurant": "Zippys",
+      "price": "$0-$9",
+      "rating": "4/5",
       "location": "Off-Location",
       "owner": "john@foo.com"
     },
     {
       "name": "John",
-      "food": "Breakfast Burrito",
-      "image": "app/public/images/bb300x300px.png",
+      "title": "Breakfast Burrito",
+      "image": "/images/bb300x300px.png",
       "restaurant": "Konos",
       "price": "$0-$8",
       "rating": "3/5",
@@ -72,9 +82,9 @@
       "owner": "john@foo.com"
     },
     {
-      "name": "Louis",
-      "food": "Chili",
-      "image": "app/public/images/breadfruitkeralan300x300px.png",
+      "name": "John",
+      "title": "Chili",
+      "image": "/images/breadfruitkeralan300x300px.png",
       "restaurant": "L&L",
       "price": "$0-$8",
       "rating": "4/5",
@@ -83,8 +93,8 @@
     },
     {
       "name": "John",
-      "food": "Pizza",
-      "image": "app/public/images/pizza300x300px.png",
+      "title": "Pizza",
+      "image": "images/pizza300x300px.png",
       "restaurant": "Pizza Hut",
       "price": "$9-$15",
       "rating": "3/5",

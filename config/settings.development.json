@@ -54,18 +54,28 @@
   "defaultFoods": [
     {
       "name": "John",
-      "food": "Loco Moco",
-      "image": "https://i.ytimg.com/vi/SEYD2ZudvME/hqdefault.jpg",
+      "title": "Loco Moco",
+      "image": "/images/locomoco300x300px.png",
       "restaurant": "L&L",
       "price": "$0-$8",
-      "rating": "1/5",
+      "rating": "3/5",
+      "location": "Paradise Palms",
+      "owner": "john@foo.com"
+    },
+    {
+      "name": "John",
+      "title": "Loco Moco",
+      "image": "/images/locomoco300x300px.png",
+      "restaurant": "Zippys",
+      "price": "$0-$8",
+      "rating": "4/5",
       "location": "Off-Location",
       "owner": "john@foo.com"
     },
     {
       "name": "John",
-      "food": "Breakfast Burrito",
-      "image": "http://dining.staradvertiser.com/wp-content/uploads/2016/10/DO10092016_15.jpg",
+      "title": "Breakfast Burrito",
+      "image": "/images/bb300x300px.png",
       "restaurant": "Konos",
       "price": "$0-$8",
       "rating": "3/5",
@@ -73,9 +83,9 @@
       "owner": "john@foo.com"
     },
     {
-      "name": "Louis",
-      "food": "Loco Moco",
-      "image": "http://4.bp.blogspot.com/-ETxZycj5SUA/U9CQf3GSzCI/AAAAAAAAHkU/Rvf7zAyHOSY/s1600/breadfruitkeralan.jpg",
+      "name": "John",
+      "title": "Chili",
+      "image": "/images/breadfruitkeralan300x300px.png",
       "restaurant": "L&L",
       "price": "$0-$8",
       "rating": "4/5",
@@ -84,8 +94,8 @@
     },
     {
       "name": "John",
-      "food": "Pizza",
-      "image": "https://www.seriouseats.com/2013/01/20160503-cast-iron-pizza-1500x1125.jpg",
+      "title": "Pizza",
+      "image": "images/pizza300x300px.png",
       "restaurant": "Pizza Hut",
       "price": "$9-$15",
       "rating": "3/5",

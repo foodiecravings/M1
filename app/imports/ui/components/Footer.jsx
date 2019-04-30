@@ -20,7 +20,6 @@ class Footer extends React.Component {
             </Menu.Item>
             <Menu.Item fitted href="https://www.instagram.com/fooodiecravings/?hl=en"><Icon name="instagram"/>
             </Menu.Item>
-            ) : ''}
           </Menu>
         </footer>
     );

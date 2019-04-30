@@ -36,6 +36,7 @@
       "condition": "excellent"
     }
   ],
+
   "defaultReports": [
     {
       "name": "John",
@@ -82,6 +83,16 @@
       "rating": "4/5",
       "location": "Paradise Palms",
       "favorite": false,
+      "owner": "john@foo.com"
+    },
+    {
+      "name": "John",
+      "food": "Pizza",
+      "image": "https://www.seriouseats.com/2013/01/20160503-cast-iron-pizza-1500x1125.jpg",
+      "restaurant": "Pizza Hut",
+      "price": "$9-$15",
+      "rating": "3/5",
+      "location": "Cafeteria",
       "owner": "john@foo.com"
     }
   ]

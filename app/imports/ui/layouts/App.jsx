@@ -8,6 +8,7 @@ import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import Profile from '../pages/Profile';
+import UpdateProfile from '../pages/UpdateProfile';
 import ListReportAdmin from '../pages/ListReportAdmin';
 import AddFood from '../pages/AddFood';
 import EditFood from '../pages/EditFood';
@@ -36,6 +37,7 @@ class App extends React.Component {
               <ProtectedRoute path="/edit/:_id" component={EditFood}/>
               <AdminProtectedRoute path="/adminreport" component={ListReportAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
+              <ProtectedRoute path="/UpdateProfile/:_id" component={UpdateProfile}/>
               <Route component={NotFound}/>
             </Switch>
             <Footer/>

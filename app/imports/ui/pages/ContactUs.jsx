@@ -36,8 +36,8 @@ class ContactUs extends React.Component {
   render() {
     return (
         <Container>
-          <Header as="h2" textAlign="center">Contact Us</Header>
-          <p>Thank you for using FoodieCravings! Please complete the for below, so we can provide quick and efficient
+          <Header as="h2" textAlign='center' className='landingFont'>Contact Us</Header>
+          <p className='landingFont'>Thank you for using FoodieCravings! Please complete the for below, so we can provide quick and efficient
             service. If this is an urgent matter please contact Customer Support:</p>
           <ul>
             <li>US: 808-525-8471</li>

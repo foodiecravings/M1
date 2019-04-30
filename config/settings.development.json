@@ -60,7 +60,7 @@
       "price": "$0-$8",
       "rating": "1/5",
       "location": "Off-Location",
-      "favorite": true,
+      "favorite": false,
       "owner": "john@foo.com"
     },
     {

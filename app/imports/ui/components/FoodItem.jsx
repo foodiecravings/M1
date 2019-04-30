@@ -13,6 +13,7 @@ class FoodItem extends React.Component {
   constructor(props) {
     super(props);
     this.onClick = this.onClick.bind(this);
+    this.addFav = this.addFav.bind(this);
   }
 
   deleteCallback(error) {
@@ -32,11 +33,8 @@ class FoodItem extends React.Component {
 
   addFav() {
     if(this.props.food.favorite === false){
-      this.props.food.favorite = true;
+      Foods.update(this.props.food._id,{$set:{favorite:true}});
       Bert.alert({ type: 'success', message: 'Favorites add succeeded' });
-    } else {
-      this.props.food.favorite = false;
-      Bert.alert({ type: 'danger', message: 'Favorites removed' });
     }
   }
 
@@ -52,7 +50,6 @@ class FoodItem extends React.Component {
               <a>
                 {this.props.food.rating}
                 <Icon name="star"/>
-                {this.props.food.favorite}
                 <Button basic onClick={this.addFav}>Add to Favorites</Button>
               </a>
             </Card.Content>
@@ -64,7 +61,7 @@ class FoodItem extends React.Component {
           </Card.Content>
           <Card.Content extra>
             <Feed>
-              {this.props.notes.map((note, index) => <Note key={index} note={note}/>)}
+              {/*{this.props.notes.map((note, index) => <Note key={index} note={note}/>)}*/}
             </Feed>
           </Card.Content>
           <Card.Content extra>
@@ -78,7 +75,7 @@ class FoodItem extends React.Component {
 /** Require a document to be passed to this component. */
 FoodItem.propTypes = {
   food: PropTypes.object.isRequired,
-  notes: PropTypes.object.isRequired,
+  notes: PropTypes.array.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */

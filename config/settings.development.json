@@ -93,6 +93,7 @@
       "price": "$9-$15",
       "rating": "3/5",
       "location": "Cafeteria",
+      "favorite": false,
       "owner": "john@foo.com"
     }
   ]

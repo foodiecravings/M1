@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Loader, Table } from 'semantic-ui-react';
+import { Container, Header, Loader, Card } from 'semantic-ui-react';
 import { Foods } from '/imports/api/food/food';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
@@ -20,9 +20,9 @@ renderPage() {
   return (
       <Container>
         <Header as="h2" textAlign="center">Search Results</Header>
-        <Table.Row>
+        <Card.Group>
           {this.props.location.state.referrer.map((food, index) => <FoodResultItem key={index} food={food} />)}
-        </Table.Row>
+        </Card.Group>
       </Container>
   );
 }

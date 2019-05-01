@@ -70,6 +70,7 @@
       "price": "$0-$8",
       "rating": "4/5",
       "location": "Off-Location",
+      "favorite": false,
       "owner": "john@foo.com"
     },
     {
@@ -80,6 +81,7 @@
       "price": "$0-$8",
       "rating": "3/5",
       "location": "Off-Location",
+      "favorite": false,
       "owner": "john@foo.com"
     },
     {
@@ -90,6 +92,7 @@
       "price": "$0-$8",
       "rating": "4/5",
       "location": "Paradise Palms",
+      "favorite": false,
       "owner": "john@foo.com"
     },
     {
@@ -100,6 +103,7 @@
       "price": "$9-$15",
       "rating": "3/5",
       "location": "Cafeteria",
+      "favorite": false,
       "owner": "john@foo.com"
     }
   ]

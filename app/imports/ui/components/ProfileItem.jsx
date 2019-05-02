@@ -5,8 +5,6 @@ import { withRouter, Link } from 'react-router-dom';
 
 import ReactImageFallback from 'react-image-fallback';
 
-
-/** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class ProfileItem extends React.Component {
 
   render() {

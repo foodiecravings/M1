@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Image, Header, Loader, Grid } from 'semantic-ui-react';
+import { Container, Header, Loader, Grid } from 'semantic-ui-react';
 import { Foods } from '/imports/api/food/food';
 import { Notes } from '/imports/api/note/note';
 import FoodItem from '/imports/ui/components/FoodItem';
@@ -9,8 +9,6 @@ import PropTypes from 'prop-types';
 import ProfileItem from '/imports/ui/components/ProfileItem';
 import { Profiles } from '/imports/api/profile/profile';
 import { Link } from 'react-router-dom';
-
-
 
 /** Renders a table containing all of the Food documents. Use <FoodItem> to render each row. */
 class Profile extends React.Component {
@@ -47,7 +45,7 @@ class Profile extends React.Component {
               <Header as="h2" textAlign="center">Reviews Made:</Header>
             </Grid.Row>
             <Grid.Row>
-            {this.props.foods.map((food, index) => <FoodItem
+            {this.props.foodsProfile.map((food, index) => <FoodItem
                 key={index} food={food} notes={this.props.notes.filter(note => (note.foodId === food._id))}/>)}
             </Grid.Row>
             <Grid.Row>
@@ -66,6 +64,7 @@ class Profile extends React.Component {
 /** Require an array of Food documents in the props. */
 Profile.propTypes = {
   foods: PropTypes.array.isRequired,
+  foodsProfile: PropTypes.array.isRequired,
   notes: PropTypes.array.isRequired,
   profiles: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
@@ -78,11 +77,13 @@ export default withTracker(() => {
   const subscription = Meteor.subscribe('Food');
   const subscription2 = Meteor.subscribe('Notes');
   const subscription3 = Meteor.subscribe('Profile');
+  const subscription4 = Meteor.subscribe('FoodProfile');
   return {
     foods: Foods.find({}).fetch(),
+    foodsProfile: Foods.find({}).fetch(),
     notes: Notes.find({}).fetch(),
     profiles: Profiles.find({}).fetch(),
     currentUser: Profiles.find({}).fetch() === 0 ? '' : Profiles.findOne(Meteor.user()),
-    ready: (subscription.ready() && subscription2.ready() && subscription3.ready()),
+    ready: (subscription.ready() && subscription2.ready() && subscription3.ready() && subscription4.ready()),
   };
 })(Profile);

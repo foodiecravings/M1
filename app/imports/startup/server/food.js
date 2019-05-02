@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { Foods } from '../../api/food/food.js';
+import { Profiles } from '../../api/profile/profile';
 
 /** Initialize the database with a default data document. */
 function addData(data) {
@@ -20,6 +21,14 @@ if (Foods.find().count() === 0) {
 Meteor.publish('Food', function publish() {
   if (this.userId) {
     return Foods.find();
+  }
+  return this.ready();
+});
+
+Meteor.publish('FoodProfile', function publish() {
+  if (this.userId) {
+    const username = Meteor.users.findOne(this.userId).username;
+    return Profiles.find({ owner: username });
   }
   return this.ready();
 });

@@ -5,6 +5,8 @@ import { Foods } from '/imports/api/food/food';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import FoodResultItem from '../components/FoodResultItem';
+import { Notes } from '/imports/api/note/note';
+
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListResults extends React.Component {
@@ -21,7 +23,7 @@ renderPage() {
       <Container>
         <Header as="h2" textAlign="center">Search Results</Header>
         <Card.Group>
-          {this.props.location.state.referrer.map((food, index) => <FoodResultItem key={index} food={food} />)}
+          {this.props.location.state.referrer.map((food, index) => <FoodResultItem key={index} food={food} notes={this.props.notes.filter(note => (note.foodId === food._id))}/>)} />)}
         </Card.Group>
       </Container>
   );
@@ -32,6 +34,7 @@ renderPage() {
 ListResults.propTypes = {
   location: PropTypes.object.isRequired,
   foods: PropTypes.object.isRequired,
+  notes: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -39,8 +42,11 @@ ListResults.propTypes = {
 export default withTracker(() => {
   // Get access to Foods documents.
   const subscription = Meteor.subscribe('Food');
+  const subscription2 = Meteor.subscribe('Notes');
+
   return {
     foods: Foods.find({}).fetch(),
-    ready: subscription.ready(),
+    notes: Notes.find({}).fetch(),
+    ready: subscription.ready() && subscription2.ready(),
   };
 })(ListResults);

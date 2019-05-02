@@ -1,6 +1,6 @@
 import React from 'react';
 import { Foods, FoodSchema } from '/imports/api/food/food';
-import { Grid, Segment, Header, Rating } from 'semantic-ui-react';
+import { Grid, Segment, Header } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import SubmitField from 'uniforms-semantic/SubmitField';

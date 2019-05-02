@@ -1,13 +1,12 @@
 import React from 'react';
-import { Meteor } from 'meteor/meteor';
-import { Container, Segment, Header, } from 'semantic-ui-react';
+import { Container, Segment, Header } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import LongTextField from 'uniforms-semantic/LongTextField';
 import SubmitField from 'uniforms-semantic/SubmitField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
 import { Reports, ReportSchema } from '/imports/api/report/report';
-import { withTracker } from 'meteor/react-meteor-data';
+import { Bert } from 'meteor/themeteorchef:bert';
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ContactUs extends React.Component {
 
@@ -37,7 +36,8 @@ class ContactUs extends React.Component {
     return (
         <Container>
           <Header as="h2" textAlign='center' className='landingFont'>Contact Us</Header>
-          <p className='landingFont'>Thank you for using FoodieCravings! Please complete the for below, so we can provide quick and efficient
+          <p className='landingFont'>Thank you for using FoodieCravings!
+            Please complete the for below, so we can provide quick and efficient
             service. If this is an urgent matter please contact Customer Support:</p>
           <ul>
             <li>US: 808-525-8471</li>

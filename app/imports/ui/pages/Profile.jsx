@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Image, Header, Loader, Grid, Modal, Button, TextArea, Card } from 'semantic-ui-react';
+import { Container, Image, Header, Loader, Grid } from 'semantic-ui-react';
 import { Foods } from '/imports/api/food/food';
 import { Notes } from '/imports/api/note/note';
 import FoodItem from '/imports/ui/components/FoodItem';

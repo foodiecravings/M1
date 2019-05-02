@@ -17,8 +17,8 @@ class EditFood extends React.Component {
 
   /** On successful submit, insert the data. */
   submit(data) {
-    const { name, food, image, restaurant, price, rating, location, _id } = data;
-    Foods.update(_id, { $set: { name, food, image, restaurant, price, rating, location } }, (error) => (error ?
+    const { name, food, image, restaurant, price, rating, location, favorite, _id } = data;
+    Foods.update(_id, { $set: { name, food, image, restaurant, price, rating, location, favorite } }, (error) => (error ?
         Bert.alert({ type: 'danger', message: `Update failed: ${error.message}` }) :
         Bert.alert({ type: 'success', message: 'Update succeeded' })));
   }
@@ -46,6 +46,7 @@ class EditFood extends React.Component {
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
                 <HiddenField name='owner'/>
+                <HiddenField name='favorite'/>
               </Segment>
             </AutoForm>
           </Grid.Column>

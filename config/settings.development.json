@@ -64,8 +64,8 @@
     },
     {
       "name": "John",
-      "title": "Loco Moco",
-      "image": "/images/locomoco300x300px.png",
+      "title": "Korean Fried Chicken",
+      "image": "/images/korean-fried-chicken.jpg",
       "restaurant": "Zippys",
       "price": "$0-$8",
       "rating": "4/5",
@@ -103,6 +103,83 @@
       "price": "$9-$15",
       "rating": "3/5",
       "location": "Cafeteria",
+      "favorite": false,
+      "owner": "john@foo.com"
+    },
+    {
+      "name": "John",
+      "title": "Zip Pac",
+      "image": "/images/download.jpg",
+      "restaurant": "Zippys",
+      "price": "$0-$8",
+      "rating": "4/5",
+      "location": "Off-Location",
+      "favorite": false,
+      "owner": "john@foo.com"
+    },
+    {
+      "name": "John",
+      "title": "Spaghetti",
+      "image": "/images/o.jpg",
+      "restaurant": "Zippys",
+      "price": "$9-$15",
+      "rating": "3/5",
+      "location": "Off-Location",
+      "favorite": false,
+      "owner": "john@foo.com"
+    },
+    {
+      "name": "John",
+      "title": "Chicken Katsu",
+      "image": "/images/chicken-katsu-katsu-sauce.jpg",
+      "restaurant": "Zippys",
+      "price": "$9-$15",
+      "rating": "3/5",
+      "location": "Off-Location",
+      "favorite": false,
+      "owner": "john@foo.com"
+    },
+    {
+      "name": "John",
+      "title": "Fried Chicken",
+      "image": "/images/friedchicken.jpg",
+      "restaurant": "Zippys",
+      "price": "$9-$15",
+      "rating": "4/5",
+      "location": "Off-Location",
+      "favorite": false,
+      "owner": "john@foo.com"
+    },
+    {
+      "name": "John",
+      "title": "Teri Beef Plate",
+      "image": "/images/teribeef.jpg",
+      "restaurant": "Zippys",
+      "price": "$9-$15",
+      "rating": "5/5",
+      "location": "Off-Location",
+      "favorite": false,
+      "owner": "john@foo.com"
+    },
+    {
+      "name": "John",
+      "title": "Chef Salad",
+      "image": "/images/chefsalad.jpg",
+      "restaurant": "Zippys",
+      "price": "$0-$8",
+      "rating": "3/5",
+      "location": "Off-Location",
+      "favorite": false,
+      "owner": "john@foo.com"
+    },
+    {
+      "name": "John",
+      "title": "Boneless Garlic Chicken",
+      "image": "/images/boneless-garlic-chicken.jpg",
+      "restaurant": "Pizza Hut",
+      "price": "$0-$8",
+      "rating": "4/5",
+      "location": "Off-Location",
       "favorite": false,
       "owner": "john@foo.com"
     }

@@ -7,7 +7,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import ReactImageFallback from "react-image-fallback";
 
 
-/** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
+/** Renders a single row in the List Profile table. See pages/ListStuff.jsx. */
 class ProfileItem extends React.Component {
 
   render() {

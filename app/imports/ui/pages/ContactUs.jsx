@@ -8,7 +8,7 @@ import SubmitField from 'uniforms-semantic/SubmitField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
 import { Reports, ReportSchema } from '/imports/api/report/report';
 import { withTracker } from 'meteor/react-meteor-data';
-/** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
+/** Renders a table containing all of the Report documents. Use <ReportItem> to render each row. */
 class ContactUs extends React.Component {
 
   constructor(props) {

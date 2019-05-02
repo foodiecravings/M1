@@ -1,6 +1,6 @@
 import React from 'react';
 import { Foods, FoodSchema } from '/imports/api/food/food';
-import { Grid, Segment, Header, Rating } from 'semantic-ui-react';
+import { Grid, Segment, Header } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import SubmitField from 'uniforms-semantic/SubmitField';
@@ -33,9 +33,9 @@ class AddFood extends React.Component {
 
   /** On submit, insert the data. */
   submit(data) {
-    const { name, food, image, restaurant, price, rating, location } = data;
+    const { name, title, image, restaurant, price, rating, location, favorite } = data;
     const owner = Meteor.user().username;
-    Foods.insert({ name, food, image, restaurant, price, rating, location, owner }, this.insertCallback);
+    Foods.insert({ name, title, image, restaurant, price, rating, location, favorite, owner }, this.insertCallback);
   }
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
@@ -47,7 +47,7 @@ class AddFood extends React.Component {
             <AutoForm ref={(ref) => { this.formRef = ref; }} schema={FoodSchema} onSubmit={this.submit}>
               <Segment>
                 <TextField name='name'/>
-                <TextField name='food'/>
+                <TextField name='title' label='Food'/>
                 <TextField name='image'/>
                 <TextField name='restaurant'/>
                 <SelectField name='price'/>
@@ -56,6 +56,7 @@ class AddFood extends React.Component {
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
                 <HiddenField name='owner' value='fakeuser@foo.com'/>
+                <HiddenField name='favorite' value={false}/>
               </Segment>
             </AutoForm>
           </Grid.Column>

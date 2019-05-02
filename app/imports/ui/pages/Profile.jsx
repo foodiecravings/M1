@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Image, Header, Loader, Grid, Modal, Button, TextArea, Card } from 'semantic-ui-react';
+import { Container, Header, Loader, Grid } from 'semantic-ui-react';
 import { Foods } from '/imports/api/food/food';
 import { Notes } from '/imports/api/note/note';
 import FoodItem from '/imports/ui/components/FoodItem';
@@ -42,9 +42,22 @@ class Profile extends React.Component {
               </Grid.Column>
             </Grid>
           </Container>
-          <Header as="h2" textAlign="center">Reviews Made:</Header>
+          <Grid centered rows={4}>
+            <Grid.Row>
+              <Header as="h2" textAlign="center">Reviews Made:</Header>
+            </Grid.Row>
+            <Grid.Row>
             {this.props.foods.map((food, index) => <FoodItem
                 key={index} food={food} notes={this.props.notes.filter(note => (note.foodId === food._id))}/>)}
+            </Grid.Row>
+            <Grid.Row>
+              <Header as="h2" textAlign="center">Favorites:</Header>
+            </Grid.Row>
+          <Grid.Row>
+            {(this.props.foods.filter(foods => foods.favorite === true).map((food, index) => <FoodItem key={index} food={food}
+                   notes={this.props.notes.filter(note => (note.foodId === food._id))}/>))}
+          </Grid.Row>
+          </Grid>
         </div>
     );
   }

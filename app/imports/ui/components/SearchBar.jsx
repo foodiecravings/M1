@@ -28,10 +28,8 @@ class SearchBar extends Component {
     this.setState({ renderResults: true });
   };
 
-  handleSearchChange = (e, { value }) => {
-    {
+  handleSearchChange = (e, { value }) => { {
       this.setState({ isLoading: true, value });
-
     }
 
     setTimeout(() => {
@@ -81,7 +79,7 @@ class SearchBar extends Component {
 
 /** Require an array of Food documents in the props. */
 SearchBar.propTypes = {
-  foods: PropTypes.array.isRequired,
+  foods: PropTypes.object.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 

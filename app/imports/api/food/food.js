@@ -8,7 +8,7 @@ const Foods = new Mongo.Collection('Foods');
 /** Create a schema to constrain the structure of documents associated with this collection. */
 const FoodSchema = new SimpleSchema({
       name: String,
-      food: String,
+      title: String,
       image: String,
       restaurant: String,
       price: {
@@ -26,11 +26,14 @@ const FoodSchema = new SimpleSchema({
         allowedValues: ['Paradise Palms', 'Cafeteria', 'Off-Location'],
         defaultValue: 'Paradise Palms',
       },
+      favorite: Boolean,
       owner: String,
-    },
-    {
-      tracker: Tracker,
-    });
+  },
+{
+  tracker: Tracker
+}
+)
+;
 
 /** Attach this schema to the collection. */
 Foods.attachSchema(FoodSchema);

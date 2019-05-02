@@ -13,6 +13,7 @@ class FoodItem extends React.Component {
   constructor(props) {
     super(props);
     this.onClick = this.onClick.bind(this);
+    this.addFav = this.addFav.bind(this);
   }
 
   deleteCallback(error) {
@@ -30,6 +31,13 @@ class FoodItem extends React.Component {
     }
   }
 
+  addFav() {
+    if(this.props.food.favorite === false){
+      Foods.update(this.props.food._id,{$set:{favorite:true}});
+      Bert.alert({ type: 'success', message: 'Favorites add succeeded' });
+    }
+  }
+
   render() {
     return (
         <Card raised centered className='landing-page-card-background'>
@@ -42,6 +50,7 @@ class FoodItem extends React.Component {
               <a>
                 {this.props.food.rating}
                 <Icon name="star"/>
+                <Button basic onClick={this.addFav}>Add to Favorites</Button>
               </a>
             </Card.Content>
           </Card.Content>
@@ -66,7 +75,7 @@ class FoodItem extends React.Component {
 /** Require a document to be passed to this component. */
 FoodItem.propTypes = {
   food: PropTypes.object.isRequired,
-  notes: PropTypes.object.isRequired,
+  notes: PropTypes.array.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */

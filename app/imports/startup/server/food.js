@@ -4,7 +4,7 @@ import { Foods } from '../../api/food/food.js';
 
 /** Initialize the database with a default data document. */
 function addData(data) {
-  console.log(`  Adding: ${data.name} (${data.owner})`);
+  console.log(`  Adding: ${data.title} (${data.owner})`);
   Foods.insert(data);
 }
 
@@ -12,15 +12,14 @@ function addData(data) {
 if (Foods.find().count() === 0) {
   if (Meteor.settings.defaultFoods) {
     console.log('Creating default data.');
-    Meteor.settings.defaultFoods.map(data => addData(data));
+    Meteor.settings.defaultFoods.map((data) => addData(data));
   }
 }
 
 /** This subscription publishes only the documents associated with the logged in user */
 Meteor.publish('Food', function publish() {
   if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return Foods.find({ owner: username });
+    return Foods.find();
   }
   return this.ready();
 });

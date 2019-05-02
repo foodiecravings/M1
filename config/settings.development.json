@@ -60,6 +60,7 @@
       "price": "$0-$8",
       "rating": "3/5",
       "location": "Paradise Palms",
+      "favorite": false,
       "owner": "john@foo.com"
     },
     {

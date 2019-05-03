@@ -13,7 +13,6 @@ import { Link } from 'react-router-dom';
 /** Renders a table containing all of the Food documents. Use <FoodItem> to render each row. */
 class Profile extends React.Component {
 
-
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
@@ -27,15 +26,15 @@ class Profile extends React.Component {
             <Grid centered columns={2}>
               <Grid.Column>
                 <Header as="h2" textAlign="center">Profile</Header>
-                {this.props.profiles.map((profile) => <ProfileItem key={profile._id} profile={profile} />)}
+                {this.props.profiles.map((profile) => <ProfileItem key={profile._id} profile={profile}/>)}
               </Grid.Column>
               <Grid.Column>
                 {this.props.currentUser === '' ? (
                     <Link to={`/UpdateProfile/${this.props.profiles._id}`}>Add a Profile</Link>
-                ):(
+                ) : (
                     <Header as='h2' textAlign="center">Welcome to FoodieCravings</Header>
                 )}
-                  </Grid.Column>
+              </Grid.Column>
               <Grid.Column>
               </Grid.Column>
             </Grid>
@@ -45,16 +44,15 @@ class Profile extends React.Component {
               <Header as="h2" textAlign="center">Reviews Made:</Header>
             </Grid.Row>
             <Grid.Row>
-            {this.props.foodsProfile.map((food, index) => <FoodItem
-                key={index} food={food} notes={this.props.notes.filter(note => (note.foodId === food._id))}/>)}
+              {this.props.foodsProfile.map((food, index) => <FoodItem
+                  key={index} food={food} notes={this.props.notes.filter(note => (note.foodId === food._id))}/>)}
             </Grid.Row>
             <Grid.Row>
               <Header as="h2" textAlign="center">Favorites:</Header>
             </Grid.Row>
-          <Grid.Row>
-            {(this.props.foods.filter(foods => foods.favorite === true).map((food, index) => <FoodItem key={index} food={food}
-                   notes={this.props.notes.filter(note => (note.foodId === food._id))}/>))}
-          </Grid.Row>
+            <Grid.Row>
+              {(this.props.foods.filter(foods => foods.favorite === true).map((food, index) => <FoodItem key={index} food={food} notes={this.props.notes.filter(note => (note.foodId === food._id))}/>))}
+            </Grid.Row>
           </Grid>
         </div>
     );

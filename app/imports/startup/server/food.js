@@ -1,7 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { Foods } from '../../api/food/food.js';
-import { Profiles } from '../../api/profile/profile';
 
 /** Initialize the database with a default data document. */
 function addData(data) {

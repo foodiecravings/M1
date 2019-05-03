@@ -70,17 +70,6 @@
   "defaultFoods": [
     {
       "name": "John",
-      "title": "Loco Moco",
-      "image": "/images/locomoco300x300px.png",
-      "restaurant": "L&L",
-      "price": "$0-$8",
-      "rating": "3/5",
-      "location": "Paradise Palms",
-      "favorite": false,
-      "owner": "john@foo.com"
-    },
-    {
-      "name": "John",
       "title": "Korean Fried Chicken",
       "image": "/images/korean-fried-chicken.jpg",
       "restaurant": "Zippys",
@@ -196,7 +185,106 @@
       "restaurant": "Pizza Hut",
       "price": "$0-$8",
       "rating": "4/5",
+      "location": "Cafeteria",
+      "favorite": false,
+      "owner": "john@foo.com"
+    },
+    {
+      "name": "John",
+      "title": "Loco Moco",
+      "image": "/images/locomoco300x300px.png",
+      "restaurant": "L&L",
+      "price": "$0-$8",
+      "rating": "3/5",
+      "location": "Paradise Palms",
+      "favorite": false,
+      "owner": "john@foo.com"
+    },
+    {
+      "name": "John",
+      "title": "20-piece Chicken Nuggets",
+      "image": "/images/20nuggets.jpg",
+      "restaurant": "McDonald's",
+      "price": "$0-$8",
+      "rating": "3/5",
       "location": "Off-Location",
+      "favorite": false,
+      "owner": "john@foo.com"
+    },
+    {
+      "name": "John",
+      "title": "McChicken",
+      "image": "/images/mcchicken.jpg",
+      "restaurant": "McDonald's",
+      "price": "$0-$8",
+      "rating": "3/5",
+      "location": "Off-Location",
+      "favorite": false,
+      "owner": "john@foo.com"
+    },
+    {
+      "name": "John",
+      "title": "French Toast",
+      "image": "/images/French-Toast-Brioche-3.jpg",
+      "restaurant": "Da Grill",
+      "price": "$0-$8",
+      "rating": "4/5",
+      "location": "Cafeteria",
+      "favorite": false,
+      "owner": "john@foo.com"
+    },
+    {
+      "name": "John",
+      "title": "Buttermilk Pancakes",
+      "image": "/images/pancakes.jpg",
+      "restaurant": "Da Grill",
+      "price": "$0-$8",
+      "rating": "4/5",
+      "location": "Cafeteria",
+      "favorite": false,
+      "owner": "john@foo.com"
+    },
+    {
+      "name": "John",
+      "title": "Tuna Melt",
+      "image": "/images/classic_tuna_melt.jpg",
+      "restaurant": "Da Grill",
+      "price": "$0-$8",
+      "rating": "4/5",
+      "location": "Cafeteria",
+      "favorite": false,
+      "owner": "john@foo.com"
+    },
+    {
+      "name": "John",
+      "title": "Mochiko Chicken",
+      "image": "/images/mochikochicken.jpg",
+      "restaurant": "L&L",
+      "price": "$0-$8",
+      "rating": "3/5",
+      "location": "Paradise Palms",
+      "favorite": false,
+      "owner": "john@foo.com"
+    },
+    {
+      "name": "John",
+      "title": "Orange Chicken",
+      "image": "/images/orangechicken.jpg",
+      "restaurant": "Panda Express",
+      "price": "$0-$8",
+      "rating": "3/5",
+      "location": "Paradise Palms",
+      "favorite": false,
+      "owner": "john@foo.com"
+    },
+    {
+      "name": "John",
+      "title": "Beijing Beef",
+      "image": "/images/Panda-Express-Beijing-Beef-3.jpg",
+      "restaurant": "Panda Express",
+      "price": "$0-$8",
+      "rating": "3/5",
+      "location": "Paradise Palms",
       "favorite": false,
       "owner": "john@foo.com"
     }

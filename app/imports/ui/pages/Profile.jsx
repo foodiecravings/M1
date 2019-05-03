@@ -83,7 +83,7 @@ export default withTracker(() => {
     foodsProfile: Foods.find({}).fetch(),
     notes: Notes.find({}).fetch(),
     profiles: Profiles.find({}).fetch(),
-    currentUser: Profiles.find({}).fetch() === 0 ? '' : Profiles.findOne(Meteor.user()),
+    currentUser: Profiles.find({}).fetch() == 0 ? '' : Profiles.findOne(Meteor.user()),
     ready: (subscription.ready() && subscription2.ready() && subscription3.ready() && subscription4.ready()),
   };
 })(Profile);

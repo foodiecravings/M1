@@ -28,7 +28,7 @@ Meteor.publish('Food', function publish() {
 Meteor.publish('FoodProfile', function publish() {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
-    return Profiles.find({ owner: username });
+    return Foods.find({ owner: username });
   }
   return this.ready();
 });

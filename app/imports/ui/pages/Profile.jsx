@@ -10,11 +10,8 @@ import ProfileItem from '/imports/ui/components/ProfileItem';
 import { Profiles } from '/imports/api/profile/profile';
 import { Link } from 'react-router-dom';
 
-
-
 /** Renders a table containing all of the Food documents. Use <FoodItem> to render each row. */
 class Profile extends React.Component {
-
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -23,21 +20,22 @@ class Profile extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
+    const user = Meteor.user().emails[0].address;
     return (
         <div className='landing'>
           <Container className='profileBackground'>
             <Grid centered columns={2}>
               <Grid.Column>
                 <Header as="h2" textAlign="center">Profile</Header>
-                {this.props.profiles.map((profile) => <ProfileItem key={profile._id} profile={profile} />)}
+                {this.props.profiles.map((profile) => <ProfileItem key={profile._id} profile={profile}/>)}
               </Grid.Column>
               <Grid.Column>
                 {this.props.currentUser === '' ? (
                     <Link to={`/UpdateProfile/${this.props.profiles._id}`}>Add a Profile</Link>
-                ):(
+                ) : (
                     <Header as='h2' textAlign="center">Welcome to FoodieCravings</Header>
                 )}
-                  </Grid.Column>
+              </Grid.Column>
               <Grid.Column>
               </Grid.Column>
             </Grid>
@@ -47,16 +45,14 @@ class Profile extends React.Component {
               <Header as="h2" textAlign="center">Reviews Made:</Header>
             </Grid.Row>
             <Grid.Row>
-            {this.props.foods.map((food, index) => <FoodItem
-                key={index} food={food} notes={this.props.notes.filter(note => (note.foodId === food._id))}/>)}
+              {(this.props.foodsProfile.filter(foods => foods.owner == user).map((food, index) => <FoodItem key={index} food={food} notes={this.props.notes.filter(note => (note.foodId === food._id))}/>))}
             </Grid.Row>
             <Grid.Row>
               <Header as="h2" textAlign="center">Favorites:</Header>
             </Grid.Row>
-          <Grid.Row>
-            {(this.props.foods.filter(foods => foods.favorite === true).map((food, index) => <FoodItem key={index} food={food}
-                   notes={this.props.notes.filter(note => (note.foodId === food._id))}/>))}
-          </Grid.Row>
+            <Grid.Row>
+              {(this.props.foods.filter(foods => foods.favorite === true).map((food, index) => <FoodItem key={index} food={food} notes={this.props.notes.filter(note => (note.foodId === food._id))}/>))}
+            </Grid.Row>
           </Grid>
         </div>
     );
@@ -66,6 +62,7 @@ class Profile extends React.Component {
 /** Require an array of Food documents in the props. */
 Profile.propTypes = {
   foods: PropTypes.array.isRequired,
+  foodsProfile: PropTypes.array.isRequired,
   notes: PropTypes.array.isRequired,
   profiles: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
@@ -78,11 +75,14 @@ export default withTracker(() => {
   const subscription = Meteor.subscribe('Food');
   const subscription2 = Meteor.subscribe('Notes');
   const subscription3 = Meteor.subscribe('Profile');
+  const subscription4 = Meteor.subscribe('FoodProfile');
+
   return {
     foods: Foods.find({}).fetch(),
+    foodsProfile: Foods.find({}).fetch(),
     notes: Notes.find({}).fetch(),
     profiles: Profiles.find({}).fetch(),
     currentUser: Profiles.find({}).fetch() == 0 ? '' : Profiles.findOne(Meteor.user()),
-    ready: (subscription.ready() && subscription2.ready() && subscription3.ready()),
+    ready: (subscription.ready() && subscription2.ready() && subscription3.ready() && subscription4.ready()),
   };
 })(Profile);

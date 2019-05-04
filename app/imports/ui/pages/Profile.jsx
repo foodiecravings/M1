@@ -20,6 +20,7 @@ class Profile extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
+    const user = Meteor.user().emails[0].address;
     return (
         <div className='landing'>
           <Container className='profileBackground'>
@@ -44,8 +45,7 @@ class Profile extends React.Component {
               <Header as="h2" textAlign="center">Reviews Made:</Header>
             </Grid.Row>
             <Grid.Row>
-              {this.props.foodsProfile.map((food, index) => <FoodItem
-                  key={index} food={food} notes={this.props.notes.filter(note => (note.foodId === food._id))}/>)}
+              {(this.props.foodsProfile.filter(foods => foods.owner == user).map((food, index) => <FoodItem key={index} food={food} notes={this.props.notes.filter(note => (note.foodId === food._id))}/>))}
             </Grid.Row>
             <Grid.Row>
               <Header as="h2" textAlign="center">Favorites:</Header>
@@ -76,6 +76,7 @@ export default withTracker(() => {
   const subscription2 = Meteor.subscribe('Notes');
   const subscription3 = Meteor.subscribe('Profile');
   const subscription4 = Meteor.subscribe('FoodProfile');
+
   return {
     foods: Foods.find({}).fetch(),
     foodsProfile: Foods.find({}).fetch(),

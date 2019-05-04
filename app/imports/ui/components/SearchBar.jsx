@@ -61,7 +61,7 @@ class SearchBar extends Component {
             <Search className='search-bar'
                     fluid
                     placeholder='Search for your food'
-                    input={{ fluid: 'true', transparent: 'true', icon: 'search', iconPosition: 'left' }}
+                    input={{ fluid: true, transparent: true, icon: 'search', iconPosition: 'left' }}
                     loading={isLoading}
                     onResultSelect={this.handleResultSelect}
                     onSearchChange={_.debounce(this.handleSearchChange, 500, {

@@ -45,7 +45,7 @@ class Profile extends React.Component {
               <Header as="h2" textAlign="center">Reviews Made:</Header>
             </Grid.Row>
             <Grid.Row>
-              {(this.props.foodsProfile.filter(foods => foods.owner == user).map((food, index) => <FoodItem key={index} food={food} notes={this.props.notes.filter(note => (note.foodId === food._id))}/>))}
+              {(this.props.foodsProfile.filter(foods => foods.owner === user).map((food, index) => <FoodItem key={index} food={food} notes={this.props.notes.filter(note => (note.foodId === food._id))}/>))}
             </Grid.Row>
             <Grid.Row>
               <Header as="h2" textAlign="center">Favorites:</Header>

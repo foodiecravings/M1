@@ -1,3 +1,4 @@
+/* eslint max-len: ["error", { "code": 190 }] */
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Container, Header, Loader, Grid } from 'semantic-ui-react';
@@ -45,13 +46,17 @@ class Profile extends React.Component {
               <Header as="h2" textAlign="center">Reviews Made:</Header>
             </Grid.Row>
             <Grid.Row>
-              {(this.props.foodsProfile.filter(foods => foods.owner === user).map((food, index) => <FoodItem key={index} food={food} notes={this.props.notes.filter(note => (note.foodId === food._id))}/>))}
+              {(this.props.foodsProfile.filter(foods => foods.owner === user).map((food, index) => <FoodItem key={index}
+                                                                                                             food={food}
+                                                                                                             notes={this.props.notes.filter(note => (note.foodId === food._id))}/>))}
             </Grid.Row>
             <Grid.Row>
               <Header as="h2" textAlign="center">Favorites:</Header>
             </Grid.Row>
             <Grid.Row>
-              {(this.props.foods.filter(foods => foods.favorite === true).map((food, index) => <FoodItem key={index} food={food} notes={this.props.notes.filter(note => (note.foodId === food._id))}/>))}
+              {(this.props.foods.filter(foods => foods.favorite === true).map((food, index) => <FoodItem key={index}
+                                                                                                         food={food}
+                                                                                                         notes={this.props.notes.filter(note => (note.foodId === food._id))}/>))}
             </Grid.Row>
           </Grid>
         </div>
@@ -82,7 +87,9 @@ export default withTracker(() => {
     foodsProfile: Foods.find({}).fetch(),
     notes: Notes.find({}).fetch(),
     profiles: Profiles.find({}).fetch(),
+    /* eslint-disable */
     currentUser: Profiles.find({}).fetch() == 0 ? '' : Profiles.findOne(Meteor.user()),
+    /* eslint-enable */
     ready: (subscription.ready() && subscription2.ready() && subscription3.ready() && subscription4.ready()),
   };
 })(Profile);

@@ -11,7 +11,6 @@ import { Profiles } from '/imports/api/profile/profile';
 import { Link } from 'react-router-dom';
 
 
-
 /** Renders a table containing all of the Food documents. Use <FoodItem> to render each row. */
 class Profile extends React.Component {
 
@@ -34,7 +33,7 @@ class Profile extends React.Component {
               <Grid.Column>
                 {this.props.currentUser === '' ? (
                     <Link to={`/UpdateProfile/${this.props.profiles._id}`}>Add a Profile</Link>
-                ):(
+                ) : (
                     <Header as='h2' textAlign="center">Welcome to FoodieCravings</Header>
                 )}
                   </Grid.Column>
@@ -54,7 +53,8 @@ class Profile extends React.Component {
               <Header as="h2" textAlign="center">Favorites:</Header>
             </Grid.Row>
           <Grid.Row>
-            {(this.props.foods.filter(foods => foods.favorite === true).map((food, index) => <FoodItem key={index} food={food}
+            {(this.props.foods.filter(foods => foods.favorite === true).map((food, index) => <FoodItem
+                key={index} food={food}
                    notes={this.props.notes.filter(note => (note.foodId === food._id))}/>))}
           </Grid.Row>
           </Grid>
@@ -82,7 +82,7 @@ export default withTracker(() => {
     foods: Foods.find({}).fetch(),
     notes: Notes.find({}).fetch(),
     profiles: Profiles.find({}).fetch(),
-    currentUser: Profiles.find({}).fetch() == 0 ? '' : Profiles.findOne(Meteor.user()),
+    currentUser: Profiles.find({}).fetch() === 0 ? '' : Profiles.findOne(Meteor.user()),
     ready: (subscription.ready() && subscription2.ready() && subscription3.ready()),
   };
 })(Profile);

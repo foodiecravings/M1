@@ -28,10 +28,10 @@ class SearchBar extends Component {
     this.setState({ renderResults: true });
   };
 
-  handleSearchChange = (e, { value }) => { {
-      this.setState({ isLoading: true, value });
-    }
+  handleSearchChange = (e, { value }) => {
+    this.setState({ isLoading: true, value });
 
+    // eslint-disable-next-line
     setTimeout(() => {
       if (this.state.value.length < 1) return this.resetComponent();
 

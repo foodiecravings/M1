@@ -13,7 +13,7 @@ import ListReportAdmin from '../pages/ListReportAdmin';
 import AddFood from '../pages/AddFood';
 import EditFood from '../pages/EditFood';
 import ContactUs from '../pages/ContactUs';
-import ListResults from '../pages/ListResults'
+import ListResults from '../pages/ListResults';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';

@@ -18,7 +18,8 @@ class EditFood extends React.Component {
   /** On successful submit, insert the data. */
   submit(data) {
     const { name, food, image, restaurant, price, rating, location, favorite, _id } = data;
-    Foods.update(_id, { $set: { name, food, image, restaurant, price, rating, location, favorite } }, (error) => (error ?
+    Foods.update(_id, { $set: { name, food, image, restaurant, price, rating, location, favorite } },
+        (error) => (error ?
         Bert.alert({ type: 'danger', message: `Update failed: ${error.message}` }) :
         Bert.alert({ type: 'success', message: 'Update succeeded' })));
   }

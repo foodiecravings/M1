@@ -1,3 +1,4 @@
+/* eslint max-len: ["error", { "code": 190 }] */
 import React from 'react';
 import { Grid, Loader, Header, Segment } from 'semantic-ui-react';
 import { Foods, FoodSchema } from '/imports/api/food/food';

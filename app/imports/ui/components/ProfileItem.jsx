@@ -1,3 +1,4 @@
+/* eslint max-len: ["error", { "code": 190 }] */
 import React from 'react';
 import { Item } from 'semantic-ui-react';
 import PropTypes from 'prop-types';

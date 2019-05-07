@@ -28,6 +28,7 @@ class UpdateProfile extends React.Component {
           Bert.alert({ type: 'success', message: 'Update succeeded' })));
     }
   }
+
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;

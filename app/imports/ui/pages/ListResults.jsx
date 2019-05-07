@@ -1,3 +1,4 @@
+/* eslint max-len: ["error", { "code": 190 }] */
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Container, Header, Loader, Card } from 'semantic-ui-react';

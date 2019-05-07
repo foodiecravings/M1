@@ -31,8 +31,8 @@ const FoodSchema = new SimpleSchema({
     },
     {
       tracker: Tracker,
-    })
-;
+    });
+
 /** Attach this schema to the collection. */
 Foods.attachSchema(FoodSchema);
 

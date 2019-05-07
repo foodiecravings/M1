@@ -2,9 +2,7 @@ import React from 'react';
 import { Item } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
-import { Roles } from 'meteor/alanning:roles';
-import { withTracker } from 'meteor/react-meteor-data';
-import ReactImageFallback from "react-image-fallback";
+import ReactImageFallback from 'react-image-fallback';
 
 
 /** Renders a single row in the List Profile table. See pages/ListStuff.jsx. */

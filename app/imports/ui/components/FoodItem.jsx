@@ -6,7 +6,6 @@ import { Foods } from '/imports/api/food/food';
 import { Bert } from 'meteor/themeteorchef:bert';
 import Note from '/imports/ui/components/Note';
 import AddNote from '/imports/ui/components/AddNote';
-import { Grid } from 'semantic-ui-react/dist/commonjs/collections/Grid';
 
 /** Renders a single row in the List Food table. See pages/Profile.jsx. */
 class FoodItem extends React.Component {
@@ -33,11 +32,11 @@ class FoodItem extends React.Component {
   }
 
   addFav() {
-    if(this.props.food.favorite === false){
-      Foods.update(this.props.food._id,{$set:{favorite:true}});
+    if (this.props.food.favorite === false) {
+      Foods.update(this.props.food._id, { $set: { favorite: true } });
       Bert.alert({ type: 'success', message: 'Favorites add succeeded' });
-    } else if(this.props.food.favorite === true){
-      Foods.update(this.props.food._id,{$set:{favorite:false}});
+    } else if (this.props.food.favorite === true) {
+      Foods.update(this.props.food._id, { $set: { favorite: false } });
       Bert.alert({ type: 'success', message: 'Favorites Remove succeeded' });
     }
   }
@@ -56,7 +55,7 @@ class FoodItem extends React.Component {
                 <Icon name="star"/>
                 {this.props.food.favorite === false ? (
                     <Button basic onClick={this.addFav}>Add Favorite</Button>
-                ):(
+                ) : (
                     <Button basic onClick={this.addFav}>Remove Favorite</Button>
                 )}
               </a>

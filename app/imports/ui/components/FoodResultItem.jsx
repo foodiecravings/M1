@@ -16,8 +16,8 @@ class FoodResultItem extends React.Component {
   }
 
   addFav() {
-    if(this.props.food.favorite === false){
-      Foods.update(this.props.food._id,{$set:{favorite:true}});
+    if (this.props.food.favorite === false) {
+      Foods.update(this.props.food._id, { $set: { favorite: true } });
       Bert.alert({ type: 'success', message: 'Favorites add succeeded' });
     }
   }
